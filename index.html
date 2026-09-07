@@ -1,107 +1,247 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0b2a4a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="ASIM TECH SEARCH"><link rel="apple-touch-icon" href="icon-180.png"><link rel="manifest" href="manifest.json">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b2a4a">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
 <title>ASIM TECH SEARCH</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
-body{min-height:100vh;color:#fff;font-family:Arial,"Segoe UI","Noto Sans Bengali",sans-serif;background:linear-gradient(#03101c33,#03101c47),url("./mountain-bg.png") center/cover fixed no-repeat}
-body.light{background:linear-gradient(#fff3,#fff3),url("./mountain-bg.png") center/cover fixed no-repeat}
-.page{min-height:100vh}header{position:sticky;top:0;z-index:20;padding:17px 5%;display:flex;justify-content:space-between;align-items:center;background:#03101c33;backdrop-filter:blur(12px);border-bottom:1px solid #fff2}
-.logo{font-size:24px;font-weight:900;letter-spacing:2px;text-shadow:0 3px 12px #0009}.logo span,h1 span{color:#70b8ff}
-.header-actions{display:flex;gap:9px;align-items:center}.header-actions a,.header-actions button{color:#fff;text-decoration:none;border:1px solid #fff4;background:#fff2;padding:9px 13px;border-radius:22px;font-weight:700;font-size:13px;cursor:pointer}
-main{max-width:1100px;margin:auto;padding:55px 18px 65px}.hero{text-align:center;position:relative}
-.side{position:absolute;top:55px;width:180px;font-family:cursive;font-size:18px;line-height:1.5;text-shadow:0 3px 10px #000}.left{left:0;text-align:left}.right{right:0;text-align:right}
-h1{font-size:clamp(42px,7vw,82px);font-weight:900;letter-spacing:3px;line-height:1;text-shadow:0 6px 28px #000a}.subtitle{margin:14px 0 30px;text-shadow:0 2px 9px #000}
-.search-box{max-width:900px;margin:auto;background:#fff;border-radius:50px;padding:8px 10px 8px 20px;display:flex;align-items:center;box-shadow:0 20px 55px #0006}.search-icon{color:#52647b;font-size:27px;margin-right:10px}#searchInput{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#17263a;font-size:18px}.icon-btn{border:0;background:transparent;color:#52647b;width:44px;height:44px;border-radius:50%;font-size:20px;cursor:pointer}.icon-btn:hover{background:#edf2f8}.search-btn{border:0;background:#1976ff;color:#fff;padding:15px 25px;border-radius:35px;font-weight:800;cursor:pointer}
-.tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:9px;margin-top:18px}.tab{padding:9px 16px;border-radius:24px;color:#fff;text-decoration:none;background:#fff2;border:1px solid #fff3;font-size:13px;font-weight:700}.tab.active,.tab:hover{background:#fff;color:#1765c1}
-.quote,.card,.panel,.tool{background:#fff2;border:1px solid #fff3;backdrop-filter:blur(13px);box-shadow:0 12px 35px #0002}.quote{max-width:850px;margin:30px auto 0;padding:17px 22px;border-radius:20px}.quote b{font-size:19px}.quote small{display:block;margin-top:4px;opacity:.75}
-.section{margin-top:35px}.section-title{font-size:21px;font-weight:900;margin-bottom:15px;text-shadow:0 2px 8px #0008}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{border-radius:20px;padding:20px;cursor:pointer;transition:.2s}.card:hover{transform:translateY(-4px);background:#fff3}.card .icon{font-size:28px;margin-bottom:8px}.card h3{font-size:17px;margin-bottom:5px}.card p{font-size:13px;opacity:.78}
-.tools{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.tool{padding:16px;border-radius:18px;cursor:pointer;text-align:center;font-weight:800}.tool:hover{background:#fff;color:#1765c1}
-.panels{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:25px}.panel{border-radius:20px;padding:20px}.chips{display:flex;flex-wrap:wrap;gap:9px}.chip{padding:8px 13px;border-radius:20px;background:#fff2;cursor:pointer;font-size:13px}.recent{display:flex;flex-direction:column;gap:8px}.recent div{padding:9px 12px;border-radius:10px;background:#fff2;cursor:pointer;font-size:13px}.empty{opacity:.7}
-footer{text-align:center;padding:25px;opacity:.75;font-size:13px}
-.modal-bg{display:none;position:fixed;inset:0;z-index:50;background:#0009;align-items:center;justify-content:center;padding:18px}.modal{width:min(520px,100%);background:#10243b;border:1px solid #fff3;border-radius:24px;padding:22px;box-shadow:0 25px 80px #0009}.close{float:right;border:0;background:#fff2;color:#fff;border-radius:50%;width:35px;height:35px;cursor:pointer}.modal h2{margin-bottom:15px}.calc-display{width:100%;padding:14px;border:0;border-radius:12px;margin-bottom:10px;font-size:22px;text-align:right}.calc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.calc-grid button{padding:15px;border:0;border-radius:12px;cursor:pointer}.ai-box{width:100%;min-height:120px;border-radius:14px;border:1px solid #fff3;background:#fff1;color:#fff;padding:13px;resize:vertical}.modal-btn{margin-top:10px;padding:12px 17px;border:0;border-radius:12px;background:#1976ff;color:#fff;font-weight:800;cursor:pointer}
-@media(max-width:850px){.side{display:none}.grid{grid-template-columns:repeat(2,1fr)}.tools{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){body{background-attachment:scroll;background-position:center top}header{padding:14px 16px}.logo{font-size:19px}.header-actions a{display:none}main{padding:35px 14px 55px}h1{font-size:41px;letter-spacing:1px}.search-box{min-height:62px;padding-left:14px}.search-input{font-size:15px}.icon-btn{display:none}.search-btn{padding:13px 16px;font-size:14px}.tab{padding:8px 12px;font-size:12px}.grid,.tools,.panels{grid-template-columns:1fr}.quote b{font-size:16px}}
-</style></head><body><div class="page">
-<header><div class="logo">ASIM <span>TECH</span></div><div class="header-actions">
-<a href="https://www.google.com/" target="_blank">Google</a><a href="https://www.youtube.com/" target="_blank">YouTube</a><a href="https://translate.google.com/" target="_blank">Translate</a>
-<button onclick="toggleTheme()">☀️</button><button id="installBtn" onclick="installPWA()" style="display:none">📲 Install</button></div></header>
-<main><section class="hero"><div class="side left">Knowledge has no limits<br>— ASIM TECH</div><div class="side right">Explore<br>Learn<br>Discover<br>a Better Tomorrow</div>
-<h1>ASIM <span>TECH</span> SEARCH</h1><p class="subtitle">Search • Explore • Learn • Discover</p>
-<div class="search-box"><div class="search-icon">⌕</div><input id="searchInput" placeholder="Search anything..." onkeydown="if(event.key==='Enter')performSearch()"><button class="icon-btn" onclick="voiceSearch()">🎙️</button><button class="icon-btn" onclick="visualSearch()">📷</button><button class="search-btn" onclick="performSearch()">Search</button></div>
-<div class="tabs"><a class="tab active" href="#" onclick="setType('web',this)">🌐 Web</a><a class="tab" href="#" onclick="setType('images',this)">🖼 Images</a><a class="tab" href="#" onclick="setType('news',this)">📰 News</a><a class="tab" href="#" onclick="setType('videos',this)">▶ Videos</a><a class="tab" href="#" onclick="setType('scholar',this)">🎓 Scholar</a><a class="tab" href="#" onclick="setType('maps',this)">📍 Maps</a><a class="tab" href="#" onclick="setType('ai',this)">🤖 AI</a></div>
-<div class="quote"><b>“জ্ঞান যত ভাগ করা যায়, ততই বৃদ্ধি পায়।”</b><small>Knowledge grows when it is shared.</small></div></section>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  font-family:Arial,"Segoe UI","Noto Sans Bengali",sans-serif;
+  color:#fff;
+  background:
+    linear-gradient(rgba(2,15,35,.18),rgba(2,15,35,.30)),
+    url("mountain-bg.png") center center/cover fixed no-repeat;
+}
+.page{min-height:100vh;padding:20px 28px 35px}
+header{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.logo{font-size:30px;font-weight:900;letter-spacing:1px}
+.logo span{color:#08a8ff}
+.top-links{display:flex;gap:14px}
+.top-links a,.theme{
+  color:#fff;text-decoration:none;
+  padding:13px 24px;border-radius:30px;
+  background:rgba(255,255,255,.13);
+  border:1px solid rgba(255,255,255,.20);
+  backdrop-filter:blur(10px);
+  font-weight:700
+}
+.theme{cursor:pointer;font-size:20px;padding:10px 16px}
 
-<section class="section"><div class="section-title">⚡ Quick Search</div><div class="grid">
-<div class="card" onclick="quickSearch('Google')"><div class="icon">🔎</div><h3>Google Search</h3><p>Search the entire web</p></div>
-<div class="card" onclick="quickSearch('YouTube')"><div class="icon">▶️</div><h3>YouTube</h3><p>Search videos and tutorials</p></div>
-<div class="card" onclick="quickSearch('Google Images')"><div class="icon">🖼️</div><h3>Images</h3><p>Find images from the web</p></div>
-<div class="card" onclick="quickSearch('Google News')"><div class="icon">📰</div><h3>News</h3><p>Latest news and updates</p></div>
-<div class="card" onclick="quickSearch('Google Scholar')"><div class="icon">🎓</div><h3>Scholar</h3><p>Academic research</p></div>
-<div class="card" onclick="quickSearch('Google Maps')"><div class="icon">📍</div><h3>Maps</h3><p>Places and directions</p></div>
-</div></section>
+main{max-width:1180px;margin:auto;text-align:center;padding-top:85px}
+.hero{position:relative}
+.side{
+  position:absolute;top:15px;width:210px;
+  font-family:cursive;font-size:23px;line-height:1.45;
+  text-shadow:0 3px 12px #000
+}
+.left{left:-10px;text-align:left}
+.right{right:-10px;text-align:right}
 
-<section class="section"><div class="section-title">🧰 Smart Tools</div><div class="tools">
-<div class="tool" onclick="openModal('calculator')">🧮 Calculator</div><div class="tool" onclick="openModal('weather');loadWeather()">🌦️ Weather</div>
-<div class="tool" onclick="window.open('https://translate.google.com/','_blank')">🌐 Translate</div><div class="tool" onclick="googleTool('unit converter')">📏 Unit Converter</div>
-<div class="tool" onclick="googleTool('percentage calculator')">％ Percentage</div><div class="tool" onclick="googleTool('age calculator')">🎂 Age Calculator</div>
-<div class="tool" onclick="googleTool('EMI calculator')">💰 EMI Calculator</div><div class="tool" onclick="googleTool('GST calculator India')">🧾 GST Calculator</div>
-</div></section>
+h1{
+  font-size:clamp(46px,7vw,88px);
+  font-weight:900;letter-spacing:3px;
+  line-height:1;text-shadow:0 7px 30px #000
+}
+h1 span{color:#08a8ff}
+.subtitle{font-size:24px;margin-top:22px;text-shadow:0 3px 10px #000}
 
-<section class="section"><div class="section-title">🤖 AI & Learning</div><div class="grid">
-<div class="card" onclick="openAI()"><div class="icon">🤖</div><h3>Ask AI</h3><p>Ask a question in ChatGPT</p></div>
-<div class="card" onclick="window.open('https://gemini.google.com/','_blank')"><div class="icon">✨</div><h3>Gemini</h3><p>Google AI assistant</p></div>
-<div class="card" onclick="window.open('https://scholar.google.com/','_blank')"><div class="icon">📚</div><h3>Study Hub</h3><p>Research papers and academic search</p></div>
-</div></section>
+.search-box{
+  width:min(100%,920px);
+  margin:75px auto 32px;
+  background:#fff;border-radius:60px;
+  padding:8px 10px 8px 22px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 20px 55px #0007
+}
+.search-icon{font-size:31px;color:#1769e0}
+.search-input{
+  flex:1;min-width:0;border:0;outline:0;
+  font-size:21px;color:#222
+}
+.icon-btn{
+  border:0;background:transparent;cursor:pointer;
+  font-size:24px;padding:9px
+}
+.search-btn{
+  border:0;background:#087ff5;color:#fff;
+  min-width:125px;padding:15px 24px;
+  border-radius:40px;font-size:18px;
+  font-weight:800;cursor:pointer
+}
+.search-btn:hover{background:#0068d8}
 
-<section class="section"><div class="section-title">🌐 Useful Apps</div><div class="grid">
-<div class="card" onclick="window.open('https://mail.google.com/','_blank')"><div class="icon">✉️</div><h3>Gmail</h3><p>Email</p></div>
-<div class="card" onclick="window.open('https://drive.google.com/','_blank')"><div class="icon">☁️</div><h3>Google Drive</h3><p>Files and documents</p></div>
-<div class="card" onclick="window.open('https://photos.google.com/','_blank')"><div class="icon">📸</div><h3>Google Photos</h3><p>Photos and videos</p></div>
-<div class="card" onclick="window.open('https://www.google.com/maps/','_blank')"><div class="icon">🗺️</div><h3>Maps</h3><p>Places and directions</p></div>
-<div class="card" onclick="visualSearch()"><div class="icon">📷</div><h3>Google Lens</h3><p>Visual search</p></div>
-<div class="card" onclick="window.open('https://news.google.com/','_blank')"><div class="icon">📰</div><h3>Google News</h3><p>News from the web</p></div>
-</div></section>
+.tabs{
+  display:flex;justify-content:center;gap:12px;
+  flex-wrap:wrap
+}
+.tab{
+  border:1px solid rgba(255,255,255,.22);
+  color:#fff;background:rgba(20,42,65,.58);
+  backdrop-filter:blur(10px);
+  padding:13px 23px;border-radius:35px;
+  cursor:pointer;font-weight:700;font-size:16px
+}
+.tab.active{background:#fff;color:#126de0}
 
-<section class="panels"><div class="panel"><div class="section-title">🔥 Trending Searches</div><div class="chips">
-<div class="chip" onclick="fillSearch('Artificial Intelligence')">Artificial Intelligence</div><div class="chip" onclick="fillSearch('Technology News')">Technology News</div><div class="chip" onclick="fillSearch('Google Gemini')">Google Gemini</div><div class="chip" onclick="fillSearch('ChatGPT')">ChatGPT</div><div class="chip" onclick="fillSearch('Web Development')">Web Development</div><div class="chip" onclick="fillSearch('Space Technology')">Space Technology</div>
-</div></div><div class="panel"><div class="section-title">🕘 Recent Searches</div><div id="recent" class="recent"><div class="empty">No recent searches</div></div><button class="modal-btn" onclick="clearRecent()">Clear History</button></div></section>
-</main><footer>© 2026 ASIM TECH SEARCH • Knowledge has no limits</footer></div>
+.bottom-card{
+  width:min(100%,500px);margin:48px auto 0;
+  padding:18px 25px;border-radius:28px;
+  background:rgba(20,35,45,.62);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.15);
+  box-shadow:0 15px 40px #0004
+}
+.bottom-card .big{font-family:cursive;font-size:29px}
+.bottom-card .small{letter-spacing:4px;margin-top:12px;font-size:14px}
 
-<div id="calculator" class="modal-bg"><div class="modal"><button class="close" onclick="closeModal('calculator')">×</button><h2>🧮 Calculator</h2><input id="calcDisplay" class="calc-display" readonly><div class="calc-grid">
-<button onclick="calcAdd('C')">C</button><button onclick="calcAdd('⌫')">⌫</button><button onclick="calcAdd('(')">(</button><button onclick="calcAdd(')')">)</button>
-<button onclick="calcAdd('7')">7</button><button onclick="calcAdd('8')">8</button><button onclick="calcAdd('9')">9</button><button onclick="calcAdd('/')">÷</button>
-<button onclick="calcAdd('4')">4</button><button onclick="calcAdd('5')">5</button><button onclick="calcAdd('6')">6</button><button onclick="calcAdd('*')">×</button>
-<button onclick="calcAdd('1')">1</button><button onclick="calcAdd('2')">2</button><button onclick="calcAdd('3')">3</button><button onclick="calcAdd('-')">−</button>
-<button onclick="calcAdd('0')">0</button><button onclick="calcAdd('.')">.</button><button onclick="calcAdd('=')">=</button><button onclick="calcAdd('+')">+</button>
-</div></div></div>
+.status{margin-top:20px;font-size:13px;text-shadow:0 2px 8px #000}
 
-<div id="ai" class="modal-bg"><div class="modal"><button class="close" onclick="closeModal('ai')">×</button><h2>🤖 Ask AI</h2><textarea id="aiQuestion" class="ai-box" placeholder="Write your question..."></textarea><button class="modal-btn" onclick="askAI()">Open in ChatGPT</button><p style="margin-top:10px;opacity:.7;font-size:12px">This uses ChatGPT in a new tab; no API key is stored in this site.</p></div></div>
+@media(max-width:850px){
+  .side{display:none}
+  main{padding-top:65px}
+}
+@media(max-width:600px){
+  body{background-attachment:scroll;background-position:center top}
+  .page{padding:14px 12px 28px}
+  header{align-items:center}
+  .logo{font-size:21px}
+  .top-links{gap:6px}
+  .top-links a{display:none}
+  .theme{padding:7px 12px;font-size:18px}
+  main{padding-top:55px}
+  h1{font-size:39px;letter-spacing:1px}
+  .subtitle{font-size:17px;margin-top:14px}
+  .search-box{
+    margin-top:45px;
+    padding:6px 7px 6px 12px;
+    gap:3px;min-height:58px
+  }
+  .search-icon{font-size:24px}
+  .search-input{font-size:15px}
+  .icon-btn{font-size:19px;padding:6px}
+  .search-btn{
+    min-width:78px;padding:12px 12px;
+    font-size:14px
+  }
+  .tab{padding:10px 14px;font-size:13px}
+  .bottom-card{margin-top:32px}
+  .bottom-card .big{font-size:24px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="logo">ASIM <span>TECH</span></div>
+  <div class="top-links">
+    <a href="https://www.google.com" target="_blank">Google</a>
+    <a href="https://www.youtube.com" target="_blank">YouTube</a>
+    <a href="https://translate.google.com" target="_blank">Translate</a>
+    <button class="theme" onclick="toggleTheme()" title="Change appearance">☀️</button>
+  </div>
+</header>
 
-<div id="weather" class="modal-bg"><div class="modal"><button class="close" onclick="closeModal('weather')">×</button><h2>🌦️ Local Weather</h2><div id="weatherResult">Finding your location...</div></div></div>
+<main>
+<section class="hero">
+  <div class="side left">Knowledge<br>has no limits<br>— ASIM TECH</div>
+  <div class="side right">Explore<br>Learn<br>Discover<br><span>a Better Tomorrow</span></div>
+
+  <h1>ASIM <span>TECH</span> SEARCH</h1>
+  <div class="subtitle">Search · Explore · Learn · Discover</div>
+
+  <div class="search-box">
+    <div class="search-icon">⌕</div>
+    <input id="searchInput" class="search-input" placeholder="Search anything..."
+           onkeydown="if(event.key==='Enter')performSearch()">
+    <button class="icon-btn" onclick="voiceSearch()" title="Voice Search">🎙️</button>
+    <button class="icon-btn" onclick="visualSearch()" title="Visual Search">📷</button>
+    <button class="search-btn" onclick="performSearch()">Search</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="searchType('web',this)">🌐 Web</button>
+    <button class="tab" onclick="searchType('images',this)">🖼️ Images</button>
+    <button class="tab" onclick="searchType('news',this)">📰 News</button>
+    <button class="tab" onclick="searchType('videos',this)">▶️ Videos</button>
+    <button class="tab" onclick="searchType('scholar',this)">🎓 Scholar</button>
+    <button class="tab" onclick="searchType('maps',this)">📍 Maps</button>
+    <button class="tab" onclick="searchType('ai',this)">🤖 AI</button>
+  </div>
+
+  <div class="bottom-card">
+    <div class="big">A Better Tomorrow</div>
+    <div class="small">THROUGH KNOWLEDGE</div>
+  </div>
+  <div id="status" class="status"></div>
+</section>
+</main>
+</div>
 
 <script>
 let type="web";
-const input=()=>document.getElementById("searchInput");
-function setType(t,e){type=t;document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));e.classList.add("active");input().placeholder={web:"Search anything...",images:"Search images...",news:"Search news...",videos:"Search videos...",scholar:"Search academic papers...",maps:"Search places...",ai:"Ask AI..."}[t];return false}
-function performSearch(){let q=input().value.trim();if(!q){input().focus();return}if(type==="ai"){document.getElementById("aiQuestion").value=q;openModal("ai");return}saveRecent(q);let u={web:"https://www.google.com/search?q=",images:"https://www.google.com/search?tbm=isch&q=",news:"https://news.google.com/search?q=",videos:"https://www.youtube.com/results?search_query=",scholar:"https://scholar.google.com/scholar?q=",maps:"https://www.google.com/maps/search/"};window.open(u[type]+encodeURIComponent(q),"_blank")}
-function quickSearch(t){let q=input().value.trim();if(!q){input().focus();return}saveRecent(q);let u={"Google":"https://www.google.com/search?q=","YouTube":"https://www.youtube.com/results?search_query=","Google Images":"https://www.google.com/search?tbm=isch&q=","Google News":"https://news.google.com/search?q=","Google Scholar":"https://scholar.google.com/scholar?q=","Google Maps":"https://www.google.com/maps/search/"};window.open(u[t]+encodeURIComponent(q),"_blank")}
-function googleTool(q){window.open("https://www.google.com/search?q="+encodeURIComponent(q),"_blank")}
-function fillSearch(q){input().value=q;input().focus()}
-function voiceSearch(){let SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){alert("Voice search is not supported in this browser.");return}let r=new SR();r.lang="bn-IN";r.onresult=e=>{input().value=e.results[0][0].transcript;performSearch()};r.start()}
-function visualSearch(){window.open("https://lens.google.com/","_blank")}
-function saveRecent(q){let a=JSON.parse(localStorage.getItem("asimRecent")||"[]");localStorage.setItem("asimRecent",JSON.stringify([q,...a.filter(x=>x!==q)].slice(0,10)));showRecent()}
-function showRecent(){let b=document.getElementById("recent"),a=JSON.parse(localStorage.getItem("asimRecent")||"[]");b.innerHTML=a.length?a.map(q=>`<div>🔎 ${escapeHTML(q)}</div>`).join(""):'<div class="empty">No recent searches</div>';b.querySelectorAll("div").forEach((d,i)=>{if(a[i])d.onclick=()=>fillSearch(a[i])})}
-function escapeHTML(s){let d=document.createElement("div");d.textContent=s;return d.innerHTML}
-function clearRecent(){localStorage.removeItem("asimRecent");showRecent()}
-function toggleTheme(){document.body.classList.toggle("light")}
-function openModal(id){document.getElementById(id).style.display="flex"}
-function closeModal(id){document.getElementById(id).style.display="none"}
-let calc="";
-function calcAdd(x){if(x==="C"){calc=""}else if(x==="⌫"){calc=calc.slice(0,-1)}else if(x==="="){try{if(!/^[0-9+\-*/().\s]+$/.test(calc))throw 0;calc=String(Function('"use strict";return('+calc+')')())}catch(e){calc=""}}else calc+=x;document.getElementById("calcDisplay").value=calc}
-function openAI(){openModal("ai")}
-function askAI(){let q=document.getElementById("aiQuestion").value.trim();if(q)window.open("https://chatgpt.com/?q="+encodeURIComponent(q),"_blank")}
-async function loadWeather(){let b=document.getElementById("weatherResult");if(!navigator.geolocation){b.textContent="Location is not supported.";return}navigator.geolocation.getCurrentPosition(async p=>{try{let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${p.coords.latitude}&longitude=${p.coords.longitude}&current=temperature_2m,relative_humidity_2m,apparent_temperature,wind_speed_10m&timezone=auto`),d=await r.json(),c=d.current;b.innerHTML=`<p style="font-size:30px;font-weight:900">${c.temperature_2m}°C</p><p>Feels like ${c.apparent_temperature}°C</p><p>Humidity ${c.relative_humidity_2m}%</p><p>Wind ${c.wind_speed_10m} km/h</p>`}catch(e){b.textContent="Weather could not be loaded."}},()=>b.textContent="Location permission was not granted.")}
-let deferredPrompt=null;window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();deferredPrompt=e;document.getElementById("installBtn").style.display="block"});async function installPWA(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt=null}}
-if("serviceWorker"in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
-showRecent();
-</script></body></html>
+
+function q(){
+  return document.getElementById("searchInput").value.trim();
+}
+
+function performSearch(){
+  const query=q();
+  if(!query){document.getElementById("searchInput").focus();return;}
+  let url="https://www.google.com/search?q="+encodeURIComponent(query);
+
+  if(type==="images") url="https://www.google.com/search?tbm=isch&q="+encodeURIComponent(query);
+  if(type==="news") url="https://www.google.com/search?tbm=nws&q="+encodeURIComponent(query);
+  if(type==="videos") url="https://www.youtube.com/results?search_query="+encodeURIComponent(query);
+  if(type==="scholar") url="https://scholar.google.com/scholar?q="+encodeURIComponent(query);
+  if(type==="maps") url="https://www.google.com/maps/search/"+encodeURIComponent(query);
+  if(type==="ai") url="https://chatgpt.com/?q="+encodeURIComponent(query);
+
+  window.open(url,"_blank");
+}
+
+function searchType(t,el){
+  type=t;
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  el.classList.add("active");
+  document.getElementById("searchInput").focus();
+}
+
+function voiceSearch(){
+  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SpeechRecognition){
+    alert("Voice search is not supported in this browser.");
+    return;
+  }
+  const r=new SpeechRecognition();
+  r.lang="bn-IN";
+  r.interimResults=false;
+  r.onresult=e=>{
+    document.getElementById("searchInput").value=e.results[0][0].transcript;
+    performSearch();
+  };
+  r.start();
+}
+
+function visualSearch(){
+  window.open("https://lens.google.com/","_blank");
+}
+
+function toggleTheme(){
+  const body=document.body;
+  if(body.dataset.light==="1"){
+    body.dataset.light="0";
+    body.style.filter="";
+  }else{
+    body.dataset.light="1";
+    body.style.filter="brightness(1.12)";
+  }
+}
+</script>
+<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}</script>
+</body>
+</html>
