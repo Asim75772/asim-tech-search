@@ -1,1187 +1,974 @@
-<!doctype html>
-<html lang="bn">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#07152e">
-<meta name="description" content="ASIM TECH Search — Web, Images, News, Videos, Scholar, Maps and more.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>ASIM TECH SEARCH</title>
 
 <style>
-:root{
-  --ink:#08152e;
-  --blue:#1769ff;
-  --glass:rgba(255,255,255,.93);
-  --line:rgba(255,255,255,.35);
-}
-
 *{
-  box-sizing:border-box;
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
 }
 
 html{
-  scroll-behavior:smooth;
+    scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Noto Sans Bengali,sans-serif;
-  color:#fff;
-  background:#07152e;
+    min-height:100vh;
+    font-family:Arial, "Segoe UI", "Noto Sans Bengali", sans-serif;
+    color:#fff;
+
+    /* MAIN BACKGROUND IMAGE */
+    background:
+        linear-gradient(
+            rgba(3,15,35,.18),
+            rgba(3,15,35,.25)
+        ),
+        url("./mountain-bg.png") center center / cover fixed no-repeat;
 }
 
-/* =========================
-   MOUNTAIN BACKGROUND
-   ========================= */
-
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(3,15,35,.02),
-      rgba(3,15,35,.22)
-    ),
-  url("./mountain-bg.png?v=2") center center/cover no-repeat;
-  z-index:-2;
+/* DARK OVERLAY */
+.background-overlay{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(255,255,255,.04),
+            rgba(0,0,0,.18)
+        );
+    pointer-events:none;
+    z-index:0;
 }
 
-body:after{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      transparent 0,
-      rgba(2,10,25,.02) 45%,
-      rgba(2,10,25,.12) 100%
-    );
-  z-index:-1;
-  pointer-events:none;
+/* CONTENT */
+.page{
+    position:relative;
+    z-index:1;
+    min-height:100vh;
 }
 
-/* =========================
-   HEADER
-   ========================= */
-
+/* HEADER */
 header{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 5vw;
-  border-bottom:1px solid var(--line);
-  backdrop-filter:blur(8px);
-  background:rgba(4,15,34,.18);
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-  font-weight:800;
-  letter-spacing:1.5px;
+    width:100%;
+    padding:20px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
 }
 
 .logo{
-  width:42px;
-  height:42px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,#fff,#bcd4ff);
-  color:#0a43a8;
-  font-size:20px;
-  box-shadow:0 8px 28px #0004;
+    font-size:24px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-shadow:0 2px 10px rgba(0,0,0,.4);
 }
 
-.brand small{
-  display:block;
-  font-size:9px;
-  opacity:.7;
-  letter-spacing:2px;
+.logo span{
+    color:#65aaff;
 }
 
-nav{
-  display:flex;
-  gap:7px;
-  align-items:center;
+.header-links{
+    display:flex;
+    gap:20px;
+    align-items:center;
 }
 
-nav a,
-.round{
-  color:#fff;
-  text-decoration:none;
-  border:1px solid var(--line);
-  background:#ffffff12;
-  padding:9px 13px;
-  border-radius:999px;
-  font-size:13px;
+.header-links a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    font-weight:600;
+    opacity:.9;
 }
 
-.round{
-  cursor:pointer;
+.header-links a:hover{
+    opacity:1;
+    color:#7db7ff;
 }
 
-/* =========================
-   MAIN
-   ========================= */
-
-main{
-  min-height:calc(100vh - 72px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:8vh 18px 50px;
+.theme-btn{
+    border:1px solid rgba(255,255,255,.4);
+    background:rgba(255,255,255,.12);
+    color:white;
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
 }
 
+/* HERO */
 .hero{
-  text-align:center;
-  max-width:1050px;
-  width:100%;
+    min-height:calc(100vh - 85px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px 80px;
 }
 
-.eyebrow{
-  font-size:12px;
-  letter-spacing:4px;
-  text-transform:uppercase;
-  opacity:.9;
-  text-shadow:0 2px 8px #000;
+.hero-title{
+    font-size:clamp(42px,7vw,86px);
+    font-weight:900;
+    letter-spacing:3px;
+    line-height:1;
+    margin-bottom:12px;
+    text-shadow:0 5px 25px rgba(0,0,0,.55);
 }
 
-.hero h1{
-  font-size:clamp(40px,8vw,82px);
-  line-height:.95;
-  margin:13px 0 14px;
-  font-weight:900;
-  letter-spacing:-3px;
-  text-shadow:
-    0 5px 18px rgba(0,0,0,.75),
-    0 10px 35px rgba(0,0,0,.5);
+.hero-title span{
+    color:#70b1ff;
 }
 
-.hero h1 span{
-  background:linear-gradient(90deg,#fff,#8ec1ff);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+.subtitle{
+    font-size:18px;
+    opacity:.92;
+    margin-bottom:35px;
+    text-shadow:0 2px 8px rgba(0,0,0,.5);
 }
 
-.tagline{
-  font-size:clamp(14px,2.5vw,20px);
-  opacity:.95;
-  margin:0 auto 28px;
-  text-shadow:0 2px 8px #000;
+/* SIDE QUOTES */
+.side-left,
+.side-right{
+    position:absolute;
+    top:35%;
+    width:190px;
+    font-family:cursive;
+    font-size:19px;
+    line-height:1.5;
+    text-shadow:0 2px 8px rgba(0,0,0,.7);
+    opacity:.95;
 }
 
-/* =========================
-   SEARCH BOX
-   ========================= */
-
-.searchbox{
-  max-width:940px;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 9px 8px 18px;
-  border-radius:24px;
-  background:var(--glass);
-  box-shadow:0 25px 70px #0007;
-  color:#17233c;
+.side-left{
+    left:3%;
+    text-align:left;
 }
 
-.searchbox input{
-  flex:1;
-  min-width:0;
-  border:0;
-  outline:0;
-  background:transparent;
-  font-size:17px;
-  padding:13px 4px;
-  color:#12203b;
+.side-right{
+    right:3%;
+    text-align:right;
 }
 
-.searchbox input::placeholder{
-  color:#707070;
+/* SEARCH BOX */
+.search-area{
+    width:min(900px,100%);
 }
 
-.ico{
-  border:0;
-  background:transparent;
-  font-size:20px;
-  cursor:pointer;
-  opacity:.7;
-  padding:8px;
+.search-box{
+    width:100%;
+    min-height:72px;
+    background:white;
+    border-radius:45px;
+    display:flex;
+    align-items:center;
+    padding:8px 10px 8px 22px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.3),
+        0 4px 15px rgba(0,0,0,.15);
 }
 
-.ico:hover{
-  opacity:1;
+.search-icon{
+    color:#4d5d75;
+    font-size:25px;
+    margin-right:12px;
 }
 
-.searchbtn{
-  border:0;
-  border-radius:17px;
-  background:linear-gradient(135deg,#1769ff,#0750d9);
-  color:#fff;
-  font-weight:800;
-  padding:14px 23px;
-  cursor:pointer;
-  box-shadow:0 8px 25px #1769ff55;
+.search-input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:18px;
+    color:#18283d;
+    background:transparent;
+    min-width:0;
 }
 
-.searchbtn:hover{
-  transform:translateY(-1px);
+.search-input::placeholder{
+    color:#8995a6;
 }
 
-.suggest{
-  margin:12px auto 0;
-  font-size:12px;
-  opacity:.9;
-  text-shadow:0 2px 7px #000;
+.icon-btn{
+    border:none;
+    background:transparent;
+    color:#53657d;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:21px;
 }
 
-/* =========================
-   SEARCH TABS
-   ========================= */
+.icon-btn:hover{
+    background:#edf3fa;
+}
 
+.search-btn{
+    border:none;
+    background:#1976ff;
+    color:white;
+    font-weight:700;
+    font-size:16px;
+    padding:16px 25px;
+    border-radius:35px;
+    cursor:pointer;
+}
+
+.search-btn:hover{
+    background:#075edb;
+}
+
+/* TABS */
 .tabs{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:center;
-  margin:24px auto 0;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
 }
 
-.tabs button{
-  border:1px solid #ffffff55;
-  color:#fff;
-  background:rgba(7,26,54,.38);
-  padding:10px 16px;
-  border-radius:999px;
-  cursor:pointer;
-  font-weight:650;
-  backdrop-filter:blur(8px);
-  box-shadow:0 4px 15px #0002;
+.tab{
+    color:white;
+    text-decoration:none;
+    padding:10px 19px;
+    border-radius:25px;
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.22);
+    backdrop-filter:blur(10px);
+    font-size:14px;
+    font-weight:600;
+    transition:.2s;
 }
 
-.tabs button.active,
-.tabs button:hover{
-  background:#fff;
-  color:#123b82;
+.tab:hover,
+.tab.active{
+    background:white;
+    color:#1765c1;
 }
 
-/* =========================
-   QUOTE
-   ========================= */
-
-.quote{
-  width:min(850px,100%);
-  margin:26px auto 0;
-  padding:18px 22px;
-  border-radius:22px;
-  background:rgba(255,255,255,.95);
-  color:#17233c;
-  box-shadow:0 20px 55px #0005;
-  text-align:center;
+/* QUOTE */
+.quote-card{
+    margin-top:35px;
+    width:min(850px,100%);
+    padding:20px 25px;
+    border-radius:22px;
+    background:rgba(255,255,255,.13);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(12px);
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
 }
 
-.quote strong{
-  display:block;
-  font-size:17px;
+.quote-bn{
+    font-size:20px;
+    line-height:1.7;
+    font-weight:600;
 }
 
-.quote small{
-  opacity:.65;
+.quote-en{
+    margin-top:7px;
+    opacity:.75;
+    font-size:13px;
 }
 
-/* =========================
-   QUICK ACCESS CARDS
-   ========================= */
-
-.cards{
-  width:min(1050px,100%);
-  display:grid;
-  grid-template-columns:repeat(6,1fr);
-  gap:12px;
-  margin-top:40px;
+/* QUICK CARDS */
+.quick-section{
+    width:min(1050px,100%);
+    margin-top:40px;
 }
 
-.card{
-  padding:18px 14px;
-  border:1px solid #fff4;
-  border-radius:20px;
-  background:rgba(7,26,54,.48);
-  backdrop-filter:blur(10px);
-  text-decoration:none;
-  color:#fff;
-  transition:.2s;
-  box-shadow:0 10px 35px #0003;
+.section-title{
+    font-size:20px;
+    font-weight:800;
+    margin-bottom:15px;
+    text-align:left;
 }
 
-.card:hover{
-  transform:translateY(-4px);
-  background:rgba(255,255,255,.16);
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
-.card b{
-  display:block;
-  margin-top:9px;
+.quick-card{
+    padding:22px;
+    min-height:110px;
+    border-radius:20px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(12px);
+    transition:.25s;
+    cursor:pointer;
+    text-align:left;
 }
 
-.card span{
-  font-size:11px;
-  opacity:.75;
+.quick-card:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.19);
 }
 
-.symbol{
-  font-size:24px;
+.quick-icon{
+    font-size:27px;
+    margin-bottom:8px;
 }
 
-/* =========================
-   LOWER PANELS
-   ========================= */
+.quick-card h3{
+    font-size:17px;
+    margin-bottom:5px;
+}
 
-.lower{
-  width:min(1050px,100%);
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:16px;
-  margin-top:20px;
+.quick-card p{
+    font-size:13px;
+    opacity:.75;
+}
+
+/* LOWER PANELS */
+.lower-grid{
+    width:min(1050px,100%);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    margin-top:25px;
 }
 
 .panel{
-  border:1px solid #fff3;
-  border-radius:22px;
-  padding:18px;
-  background:rgba(6,23,51,.48);
-  backdrop-filter:blur(10px);
-  box-shadow:0 10px 35px #0003;
+    padding:22px;
+    border-radius:20px;
+    background:rgba(255,255,255,.11);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(12px);
+    text-align:left;
 }
 
 .panel h3{
-  margin:0 0 12px;
+    margin-bottom:15px;
 }
 
-.chips{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+.trending-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px;
 }
 
-.chip{
-  border:1px solid #fff3;
-  background:#ffffff10;
-  color:#fff;
-  padding:8px 11px;
-  border-radius:999px;
-  cursor:pointer;
-  font-size:12px;
-}
-
-.chip:hover{
-  background:#fff;
-  color:#123b82;
-}
-
-/* =========================
-   FOOTER
-   ========================= */
-
-footer{
-  padding:25px;
-  text-align:center;
-  font-size:11px;
-  opacity:.7;
-  text-shadow:0 2px 5px #000;
-}
-
-/* =========================
-   TABLET
-   ========================= */
-
-@media(max-width:800px){
-
-  header{
-    padding:0 16px;
-  }
-
-  nav a{
-    display:none;
-  }
-
-  main{
-    padding-top:7vh;
-  }
-
-  .hero h1{
-    letter-spacing:-2px;
-  }
-
-  .searchbox{
-    border-radius:20px;
-    padding-left:12px;
-  }
-
-  .searchbox input{
-    font-size:15px;
-  }
-
-  .searchbtn{
-    padding:12px 15px;
-  }
-
-  .cards{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .lower{
-    grid-template-columns:1fr;
-  }
-
-  .card{
-    padding:15px 10px;
-  }
-
-  .quote{
-    margin-top:20px;
-  }
-}
-
-/* =========================
-   MOBILE
-   ========================= */
-
-@media(max-width:480px){
-
-  body:before{
-    background:
-      linear-gradient(
-        180deg,
-        rgba(3,15,35,.02),
-        rgba(3,15,35,.18)
-      ),
-      url("assets/mountain-bg.png") center center/cover no-repeat;
-  }
-
-  .brand small{
-    font-size:8px;
-  }
-
-  .cards{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .tabs button{
-    padding:9px 12px;
-    font-size:12px;
-  }
-
-  .ico{
-    display:none;
-  }
-
-  .hero h1{
-    font-size:43px;
-  }
-
-  .tagline{
-    font-size:14px;
-  }
-
-  .searchbox{
-    padding:7px;
-  }
-
-  .searchbox input{
-    padding-left:7px;
-  }
-
-  .searchbtn{
-    padding:12px 14px;
-    border-radius:15px;
-  }
-
-  .quote strong{
-    font-size:15px;
-  }
-}
-
-/* =========================
-   VERY SMALL MOBILE
-   ========================= */
-
-@media(max-width:360px){
-
-  .hero h1{
-    font-size:37px;
-  }
-
-  .tabs{
-    gap:5px;
-  }
-
-  .tabs button{
-    padding:8px 10px;
-  }
-
-  .searchbtn{
+.trending-item{
+    padding:8px 13px;
+    border-radius:18px;
+    background:rgba(255,255,255,.13);
+    cursor:pointer;
     font-size:13px;
-    padding:11px 12px;
-  }
+}
+
+.trending-item:hover{
+    background:white;
+    color:#1765c1;
+}
+
+.recent-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.recent-item{
+    padding:9px 12px;
+    background:rgba(255,255,255,.09);
+    border-radius:10px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.recent-item:hover{
+    background:rgba(255,255,255,.18);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:30px 20px;
+    font-size:13px;
+    opacity:.7;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+    .side-left,
+    .side-right{
+        display:none;
+    }
+
+    .hero{
+        padding-top:35px;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .lower-grid{
+        grid-template-columns:1fr;
+    }
+
+    .header-links{
+        gap:10px;
+    }
+
+    .header-links a{
+        display:none;
+    }
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:15px 20px;
+    }
+
+    .logo{
+        font-size:19px;
+    }
+
+    .hero-title{
+        font-size:43px;
+        letter-spacing:1px;
+    }
+
+    .subtitle{
+        font-size:14px;
+    }
+
+    .search-box{
+        min-height:62px;
+        padding-left:15px;
+    }
+
+    .search-input{
+        font-size:15px;
+    }
+
+    .search-btn{
+        padding:13px 17px;
+        font-size:14px;
+    }
+
+    .icon-btn{
+        display:none;
+    }
+
+    .tabs{
+        gap:7px;
+    }
+
+    .tab{
+        padding:8px 13px;
+        font-size:12px;
+    }
+
+    .quote-bn{
+        font-size:16px;
+    }
+
+    .quick-grid{
+        grid-template-columns:1fr;
+    }
+
+    .quick-card{
+        min-height:90px;
+    }
+}
+
+/* LIGHT MODE */
+.light-mode{
+    color:#10213a;
+}
+
+.light-mode .page{
+    color:#10213a;
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-     ========================= -->
+<div class="background-overlay"></div>
+
+<div class="page">
 
 <header>
 
-  <div class="brand">
-
     <div class="logo">
-      A
+        ASIM <span>TECH</span>
     </div>
 
-    <div>
-      ASIM TECH
-
-      <small>
-        SEARCH • EXPLORE • DISCOVER
-      </small>
+    <div class="header-links">
+        <a href="https://www.google.com/" target="_blank">Google</a>
+        <a href="https://www.youtube.com/" target="_blank">YouTube</a>
+        <a href="https://news.google.com/" target="_blank">News</a>
+        <button class="theme-btn" onclick="toggleTheme()">☀</button>
     </div>
-
-  </div>
-
-  <nav>
-
-    <a href="https://www.google.com" target="_blank">
-      Google
-    </a>
-
-    <a href="https://www.youtube.com" target="_blank">
-      YouTube
-    </a>
-
-    <a href="https://mail.google.com" target="_blank">
-      Gmail
-    </a>
-
-    <a href="https://news.google.com" target="_blank">
-      News
-    </a>
-
-    <button class="round" id="theme">
-      ☼
-    </button>
-
-  </nav>
 
 </header>
 
+<main class="hero">
 
-<!-- =========================
-     MAIN
-     ========================= -->
-
-<main>
-
-<section class="hero">
-
-  <div class="eyebrow">
-    Knowledge has no limits
-  </div>
-
-  <h1>
-    ASIM TECH <span>SEARCH</span>
-  </h1>
-
-  <p class="tagline">
-    Explore • Learn • Discover • A Better Tomorrow
-  </p>
-
-
-  <!-- SEARCH -->
-
-  <form class="searchbox" id="searchForm">
-
-    <span>
-      ⌕
-    </span>
-
-    <input
-      id="q"
-      autocomplete="off"
-      placeholder="Search the web in বাংলা or English…"
-      aria-label="Search"
-    >
-
-    <button
-      type="button"
-      class="ico"
-      id="mic"
-      title="Voice search">
-      🎙
-    </button>
-
-    <button
-      type="button"
-      class="ico"
-      id="visual"
-      title="Google Lens">
-      ◉
-    </button>
-
-    <button class="searchbtn">
-      Search
-    </button>
-
-  </form>
-
-
-  <div class="suggest">
-    Try: রবীন্দ্রনাথ ঠাকুর • West Bengal • India • Technology
-  </div>
-
-
-  <!-- SEARCH MODES -->
-
-  <div class="tabs" id="tabs">
-
-    <button class="active" data-mode="web">
-      🌐 Web
-    </button>
-
-    <button data-mode="images">
-      🖼 Images
-    </button>
-
-    <button data-mode="news">
-      📰 News
-    </button>
-
-    <button data-mode="videos">
-      ▶ Videos
-    </button>
-
-    <button data-mode="scholar">
-      🎓 Scholar
-    </button>
-
-    <button data-mode="maps">
-      📍 Maps
-    </button>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     QUOTE
-     ========================= -->
-
-<div class="quote">
-
-  <strong>
-    “জ্ঞান যেখানে সীমাহীন, অনুসন্ধান সেখানে থেমে থাকে না।”
-  </strong>
-
-  <small>
-    — ASIM TECH
-  </small>
-
-</div>
-
-
-<!-- =========================
-     QUICK ACCESS
-     ========================= -->
-
-<section class="cards">
-
-  <a
-    class="card"
-    href="https://www.google.com"
-    target="_blank">
-
-    <div class="symbol">
-      G
+    <div class="side-left">
+        Knowledge has no limits
+        <br>
+        — ASIM TECH
     </div>
 
-    <b>
-      Google
-    </b>
-
-    <span>
-      Web Search
-    </span>
-
-  </a>
-
-
-  <a
-    class="card"
-    href="https://www.youtube.com"
-    target="_blank">
-
-    <div class="symbol">
-      ▶
+    <div class="side-right">
+        Explore
+        <br>
+        Learn
+        <br>
+        Discover
+        <br>
+        a Better Tomorrow
     </div>
 
-    <b>
-      YouTube
-    </b>
+    <h1 class="hero-title">
+        ASIM <span>TECH</span> SEARCH
+    </h1>
 
-    <span>
-      Videos
-    </span>
+    <p class="subtitle">
+        Search • Explore • Learn • Discover
+    </p>
 
-  </a>
+    <!-- SEARCH -->
+    <div class="search-area">
 
+        <div class="search-box">
 
-  <a
-    class="card"
-    href="https://images.google.com"
-    target="_blank">
+            <div class="search-icon">⌕</div>
 
-    <div class="symbol">
-      ▧
-    </div>
+            <input
+                id="searchInput"
+                class="search-input"
+                type="text"
+                placeholder="Search anything..."
+                autocomplete="off"
+                onkeydown="handleKey(event)"
+            >
 
-    <b>
-      Images
-    </b>
+            <button class="icon-btn" onclick="voiceSearch()" title="Voice Search">
+                🎙
+            </button>
 
-    <span>
-      Visual Search
-    </span>
+            <button class="icon-btn" onclick="visualSearch()" title="Visual Search">
+                📷
+            </button>
 
-  </a>
+            <button class="search-btn" onclick="performSearch()">
+                Search
+            </button>
 
+        </div>
 
-  <a
-    class="card"
-    href="https://news.google.com"
-    target="_blank">
+        <!-- TABS -->
+        <div class="tabs">
 
-    <div class="symbol">
-      📰
-    </div>
+            <a class="tab active" href="#" onclick="searchType('web');return false;">
+                🌐 Web
+            </a>
 
-    <b>
-      News
-    </b>
+            <a class="tab" href="#" onclick="searchType('images');return false;">
+                🖼 Images
+            </a>
 
-    <span>
-      Latest Stories
-    </span>
+            <a class="tab" href="#" onclick="searchType('news');return false;">
+                📰 News
+            </a>
 
-  </a>
+            <a class="tab" href="#" onclick="searchType('videos');return false;">
+                ▶ Videos
+            </a>
 
+            <a class="tab" href="#" onclick="searchType('scholar');return false;">
+                🎓 Scholar
+            </a>
 
-  <a
-    class="card"
-    href="https://scholar.google.com"
-    target="_blank">
+            <a class="tab" href="#" onclick="searchType('maps');return false;">
+                📍 Maps
+            </a>
 
-    <div class="symbol">
-      🎓
-    </div>
-
-    <b>
-      Scholar
-    </b>
-
-    <span>
-      Research Papers
-    </span>
-
-  </a>
-
-
-  <a
-    class="card"
-    href="https://maps.google.com"
-    target="_blank">
-
-    <div class="symbol">
-      📍
-    </div>
-
-    <b>
-      Maps
-    </b>
-
-    <span>
-      Places & Routes
-    </span>
-
-  </a>
-
-</section>
-
-
-<!-- =========================
-     TRENDING / RECENT
-     ========================= -->
-
-<section class="lower">
-
-  <div class="panel">
-
-    <h3>
-      🔥 Trending Searches
-    </h3>
-
-    <div class="chips" id="trending">
-
-      <button class="chip">
-        West Bengal
-      </button>
-
-      <button class="chip">
-        India
-      </button>
-
-      <button class="chip">
-        Technology
-      </button>
-
-      <button class="chip">
-        Kolkata
-      </button>
-
-      <button class="chip">
-        AI
-      </button>
-
-      <button class="chip">
-        Education
-      </button>
+        </div>
 
     </div>
 
-  </div>
+    <!-- QUOTE -->
+    <div class="quote-card">
 
+        <div class="quote-bn">
+            “জ্ঞান যত ভাগ করা যায়, ততই বৃদ্ধি পায়।”
+        </div>
 
-  <div class="panel">
-
-    <h3>
-      🕘 Recent Searches
-    </h3>
-
-    <div class="chips" id="recent">
-
-      <span style="opacity:.7;font-size:12px">
-        Your searches will appear here.
-      </span>
+        <div class="quote-en">
+            Knowledge grows when it is shared.
+        </div>
 
     </div>
 
-  </div>
+    <!-- QUICK SEARCH -->
+    <section class="quick-section">
 
-</section>
+        <div class="section-title">
+            Quick Search
+        </div>
+
+        <div class="quick-grid">
+
+            <div class="quick-card" onclick="quickSearch('Google')">
+                <div class="quick-icon">🔎</div>
+                <h3>Google Search</h3>
+                <p>Search the entire web</p>
+            </div>
+
+            <div class="quick-card" onclick="quickSearch('YouTube')">
+                <div class="quick-icon">▶️</div>
+                <h3>YouTube</h3>
+                <p>Search videos and tutorials</p>
+            </div>
+
+            <div class="quick-card" onclick="quickSearch('Google Images')">
+                <div class="quick-icon">🖼️</div>
+                <h3>Images</h3>
+                <p>Find images from the web</p>
+            </div>
+
+            <div class="quick-card" onclick="quickSearch('Google News')">
+                <div class="quick-icon">📰</div>
+                <h3>News</h3>
+                <p>Latest news and updates</p>
+            </div>
+
+            <div class="quick-card" onclick="quickSearch('Google Scholar')">
+                <div class="quick-icon">🎓</div>
+                <h3>Scholar</h3>
+                <p>Academic research</p>
+            </div>
+
+            <div class="quick-card" onclick="quickSearch('Google Maps')">
+                <div class="quick-icon">📍</div>
+                <h3>Maps</h3>
+                <p>Places and directions</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LOWER -->
+    <div class="lower-grid">
+
+        <div class="panel">
+
+            <h3>🔥 Trending Searches</h3>
+
+            <div class="trending-list">
+
+                <div class="trending-item" onclick="fillSearch('Artificial Intelligence')">
+                    Artificial Intelligence
+                </div>
+
+                <div class="trending-item" onclick="fillSearch('Technology News')">
+                    Technology News
+                </div>
+
+                <div class="trending-item" onclick="fillSearch('Google Gemini')">
+                    Google Gemini
+                </div>
+
+                <div class="trending-item" onclick="fillSearch('ChatGPT')">
+                    ChatGPT
+                </div>
+
+                <div class="trending-item" onclick="fillSearch('Web Development')">
+                    Web Development
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <h3>🕘 Recent Searches</h3>
+
+            <div id="recentList" class="recent-list">
+                <div class="recent-item">
+                    No recent searches
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
 </main>
 
-
 <footer>
-  © 2026 ASIM TECH • Smart Search Interface
+    © 2026 ASIM TECH SEARCH • Knowledge has no limits
 </footer>
 
-
-<!-- =========================
-     JAVASCRIPT
-     ========================= -->
+</div>
 
 <script>
 
-let mode = "web";
+let currentSearchType = "web";
 
-const q = document.getElementById("q");
+/* SEARCH */
+function performSearch(){
 
-const form = document.getElementById("searchForm");
+    const input = document.getElementById("searchInput");
+    const query = input.value.trim();
 
+    if(!query){
+        input.focus();
+        return;
+    }
 
-/* SEARCH MODE */
+    saveRecent(query);
 
-document
-.querySelectorAll("#tabs button")
-.forEach(button => {
+    let url = "";
 
-  button.onclick = () => {
+    if(currentSearchType === "images"){
+        url = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(query);
+    }
 
-    document
-    .querySelectorAll("#tabs button")
-    .forEach(x => {
-      x.classList.remove("active");
+    else if(currentSearchType === "news"){
+        url = "https://news.google.com/search?q=" + encodeURIComponent(query);
+    }
+
+    else if(currentSearchType === "videos"){
+        url = "https://www.youtube.com/results?search_query=" + encodeURIComponent(query);
+    }
+
+    else if(currentSearchType === "scholar"){
+        url = "https://scholar.google.com/scholar?q=" + encodeURIComponent(query);
+    }
+
+    else if(currentSearchType === "maps"){
+        url = "https://www.google.com/maps/search/" + encodeURIComponent(query);
+    }
+
+    else{
+        url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+    }
+
+    window.open(url,"_blank");
+}
+
+/* ENTER KEY */
+function handleKey(event){
+
+    if(event.key === "Enter"){
+        performSearch();
+    }
+}
+
+/* SEARCH TYPE */
+function searchType(type){
+
+    currentSearchType = type;
+
+    document.querySelectorAll(".tab").forEach(tab=>{
+        tab.classList.remove("active");
     });
 
-    button.classList.add("active");
+    event.currentTarget.classList.add("active");
 
-    mode = button.dataset.mode;
+    const input = document.getElementById("searchInput");
 
-    q.focus();
+    if(type === "images"){
+        input.placeholder = "Search images...";
+    }
 
-  };
+    else if(type === "news"){
+        input.placeholder = "Search news...";
+    }
 
-});
+    else if(type === "videos"){
+        input.placeholder = "Search videos...";
+    }
 
+    else if(type === "scholar"){
+        input.placeholder = "Search academic papers...";
+    }
 
-/* SEARCH FUNCTION */
+    else if(type === "maps"){
+        input.placeholder = "Search places...";
+    }
 
-function search(){
-
-  const text = q.value.trim();
-
-  if(!text){
-    q.focus();
-    return;
-  }
-
-  const enc = encodeURIComponent(text);
-
-  let url;
-
-
-  if(mode === "images"){
-
-    url =
-      "https://www.google.com/search?tbm=isch&q="
-      + enc;
-
-  }
-
-  else if(mode === "news"){
-
-    url =
-      "https://news.google.com/search?q="
-      + enc;
-
-  }
-
-  else if(mode === "videos"){
-
-    url =
-      "https://www.youtube.com/results?search_query="
-      + enc;
-
-  }
-
-  else if(mode === "scholar"){
-
-    url =
-      "https://scholar.google.com/scholar?q="
-      + enc;
-
-  }
-
-  else if(mode === "maps"){
-
-    url =
-      "https://www.google.com/maps/search/"
-      + enc;
-
-  }
-
-  else{
-
-    url =
-      "https://www.google.com/search?q="
-      + enc;
-
-  }
-
-
-  /* SAVE RECENT SEARCH */
-
-  let recent =
-    JSON.parse(
-      localStorage.getItem("asim_recent") || "[]"
-    );
-
-  recent = [
-    text,
-    ...recent.filter(x => x !== text)
-  ].slice(0,8);
-
-  localStorage.setItem(
-    "asim_recent",
-    JSON.stringify(recent)
-  );
-
-  renderRecent();
-
-
-  /* OPEN SEARCH */
-
-  window.open(url,"_blank");
-
+    else{
+        input.placeholder = "Search anything...";
+    }
 }
 
+/* QUICK SEARCH */
+function quickSearch(type){
 
-/* FORM */
+    let query = prompt("What do you want to search?");
 
-form.onsubmit = function(e){
+    if(!query) return;
 
-  e.preventDefault();
+    saveRecent(query);
 
-  search();
+    let url;
 
-};
+    if(type === "Google"){
+        url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+    }
 
+    else if(type === "YouTube"){
+        url = "https://www.youtube.com/results?search_query=" + encodeURIComponent(query);
+    }
 
-/* TRENDING */
+    else if(type === "Google Images"){
+        url = "https://www.google.com/search?tbm=isch&q=" + encodeURIComponent(query);
+    }
 
-document
-.querySelectorAll("#trending .chip")
-.forEach(button => {
+    else if(type === "Google News"){
+        url = "https://news.google.com/search?q=" + encodeURIComponent(query);
+    }
 
-  button.onclick = () => {
+    else if(type === "Google Scholar"){
+        url = "https://scholar.google.com/scholar?q=" + encodeURIComponent(query);
+    }
 
-    q.value = button.textContent.trim();
+    else if(type === "Google Maps"){
+        url = "https://www.google.com/maps/search/" + encodeURIComponent(query);
+    }
 
-    search();
-
-  };
-
-});
-
-
-/* RECENT SEARCH */
-
-function renderRecent(){
-
-  const box =
-    document.getElementById("recent");
-
-  const recent =
-    JSON.parse(
-      localStorage.getItem("asim_recent") || "[]"
-    );
-
-
-  if(!recent.length){
-
-    box.innerHTML =
-      '<span style="opacity:.7;font-size:12px">Your searches will appear here.</span>';
-
-    return;
-
-  }
-
-
-  box.innerHTML =
-    recent
-    .map(text =>
-      `<button class="chip">
-        ${text
-          .replace(/</g,"&lt;")
-          .replace(/>/g,"&gt;")}
-      </button>`
-    )
-    .join("");
-
-
-  box
-  .querySelectorAll(".chip")
-  .forEach(button => {
-
-    button.onclick = () => {
-
-      q.value =
-        button.textContent.trim();
-
-      search();
-
-    };
-
-  });
-
+    window.open(url,"_blank");
 }
 
+/* FILL SEARCH */
+function fillSearch(text){
 
-/* LOAD RECENT */
-
-renderRecent();
-
+    document.getElementById("searchInput").value = text;
+    document.getElementById("searchInput").focus();
+}
 
 /* VOICE SEARCH */
+function voiceSearch(){
 
-document
-.getElementById("mic")
-.onclick = () => {
+    const SpeechRecognition =
+        window.SpeechRecognition ||
+        window.webkitSpeechRecognition;
 
-  const Recognition =
-    window.SpeechRecognition ||
-    window.webkitSpeechRecognition;
+    if(!SpeechRecognition){
 
+        alert("Voice search is not supported in this browser.");
+        return;
+    }
 
-  if(!Recognition){
+    const recognition = new SpeechRecognition();
 
-    alert(
-      "Voice search is not supported in this browser."
-    );
+    recognition.lang = "bn-IN";
+    recognition.interimResults = false;
 
-    return;
+    recognition.start();
 
-  }
+    recognition.onresult = function(event){
 
+        const text = event.results[0][0].transcript;
 
-  const recognition =
-    new Recognition();
+        document.getElementById("searchInput").value = text;
 
-
-  recognition.lang = "bn-IN";
-
-  recognition.interimResults = false;
-
-  recognition.start();
-
-
-  recognition.onresult = event => {
-
-    q.value =
-      event.results[0][0].transcript;
-
-    search();
-
-  };
-
-};
-
+        performSearch();
+    };
+}
 
 /* VISUAL SEARCH */
+function visualSearch(){
 
-document
-.getElementById("visual")
-.onclick = () => {
+    window.open(
+        "https://lens.google.com/",
+        "_blank"
+    );
+}
 
-  window.open(
-    "https://lens.google.com/",
-    "_blank"
-  );
+/* RECENT SEARCH */
+function saveRecent(query){
 
-};
+    let searches =
+        JSON.parse(
+            localStorage.getItem("asimRecentSearches") || "[]"
+        );
 
+    searches = searches.filter(item => item !== query);
 
-/* THEME BUTTON */
+    searches.unshift(query);
 
-document
-.getElementById("theme")
-.onclick = () => {
+    searches = searches.slice(0,8);
 
-  document.body.classList.toggle("light");
+    localStorage.setItem(
+        "asimRecentSearches",
+        JSON.stringify(searches)
+    );
 
-};
+    showRecent();
+}
+
+/* SHOW RECENT */
+function showRecent(){
+
+    const list = document.getElementById("recentList");
+
+    let searches =
+        JSON.parse(
+            localStorage.getItem("asimRecentSearches") || "[]"
+        );
+
+    if(searches.length === 0){
+
+        list.innerHTML =
+            '<div class="recent-item">No recent searches</div>';
+
+        return;
+    }
+
+    list.innerHTML = searches.map(item => {
+
+        const safeText =
+            item.replace(/"/g,'&quot;');
+
+        return `
+            <div
+                class="recent-item"
+                onclick="fillSearch('${item.replace(/'/g,"\\'")}')"
+            >
+                🔎 ${safeText}
+            </div>
+        `;
+
+    }).join("");
+}
+
+/* THEME */
+function toggleTheme(){
+
+    document.body.classList.toggle("light-mode");
+
+    const btn = document.querySelector(".theme-btn");
+
+    if(document.body.classList.contains("light-mode")){
+        btn.textContent = "🌙";
+    }
+    else{
+        btn.textContent = "☀";
+    }
+}
+
+/* LOAD */
+showRecent();
 
 </script>
 
