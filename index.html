@@ -1,308 +1,189 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0b2a4a">
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="icon-180.png">
 <title>ASIM TECH SEARCH</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{min-height:100%;background:#06182b}
-body{
-  min-height:100vh;
-  font-family:Arial,"Segoe UI","Noto Sans Bengali",sans-serif;
-  color:#fff;
-  background:transparent;
-  position:relative;
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Arial,"Segoe UI","Noto Sans Bengali",sans-serif}
+body{color:#fff;background:#06182b;overflow-x:hidden}
+.bg{
+ position:fixed;inset:0;z-index:0;
+ background:
+ linear-gradient(rgba(2,15,35,.20),rgba(2,15,35,.34)),
+ url("mountain-bg.png") center center/cover no-repeat;
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  z-index:-1;
-  background:
-    linear-gradient(rgba(2,15,35,.18),rgba(2,15,35,.30)),
-    url("mountain-bg.png") center center/cover no-repeat;
-  transform:translateZ(0);
-  will-change:transform;
-}
-.page{min-height:100vh;padding:20px 28px 35px}
-header{display:flex;justify-content:space-between;align-items:center;gap:15px}
+.content{position:relative;z-index:1;min-height:100vh;padding:20px 28px 45px}
+header{display:flex;justify-content:space-between;align-items:center}
 .logo{font-size:30px;font-weight:900;letter-spacing:1px}
 .logo span{color:#08a8ff}
-.top-links{display:flex;gap:14px}
-.top-links a,.theme{
-  color:#fff;text-decoration:none;
-  padding:13px 24px;border-radius:30px;
-  background:rgba(255,255,255,.13);
-  border:1px solid rgba(255,255,255,.20);
-  backdrop-filter:blur(10px);
-  font-weight:700
+.top{display:flex;gap:12px;align-items:center}
+.top a,.theme{
+ color:#fff;text-decoration:none;border:1px solid #ffffff35;
+ background:#ffffff18;backdrop-filter:blur(10px);
+ border-radius:30px;padding:12px 21px;font-weight:700
 }
-.theme{cursor:pointer;font-size:20px;padding:10px 16px}
-
-main{max-width:1180px;margin:auto;text-align:center;padding-top:85px}
+.theme{cursor:pointer;font-size:19px;padding:9px 14px}
+main{width:min(1180px,100%);margin:auto;text-align:center;padding-top:75px}
 .hero{position:relative}
-.side{
-  position:absolute;top:15px;width:210px;
-  font-family:cursive;font-size:23px;line-height:1.45;
-  text-shadow:0 3px 12px #000
-}
-.left{left:-10px;text-align:left}
-.right{right:-10px;text-align:right}
-
-h1{
-  font-size:clamp(46px,7vw,88px);
-  font-weight:900;letter-spacing:3px;
-  line-height:1;text-shadow:0 7px 30px #000
-}
+.side{position:absolute;top:15px;width:215px;font-family:cursive;font-size:22px;line-height:1.45;text-shadow:0 3px 12px #000}
+.left{left:0;text-align:left}.right{right:0;text-align:right}
+h1{margin:0;font-size:clamp(46px,7vw,88px);font-weight:900;letter-spacing:3px;line-height:1;text-shadow:0 7px 30px #000}
 h1 span{color:#08a8ff}
-.subtitle{font-size:24px;margin-top:22px;text-shadow:0 3px 10px #000}
-
+.subtitle{font-size:24px;margin-top:20px;text-shadow:0 3px 10px #000}
 .search-box{
-  width:min(100%,920px);
-  margin:75px auto 32px;
-  background:#fff;border-radius:60px;
-  padding:8px 10px 8px 22px;
-  display:flex;align-items:center;gap:10px;
-  box-shadow:0 20px 55px #0007
+ width:min(920px,100%);margin:72px auto 30px;
+ display:flex;align-items:center;gap:6px;
+ background:#fff;border-radius:60px;padding:8px 9px 8px 20px;
+ box-shadow:0 20px 55px #0008
 }
-.search-icon{font-size:31px;color:#1769e0}
-.search-input{
-  flex:1;min-width:0;border:0;outline:0;
-  font-size:21px;color:#222
-}
-.icon-btn{
-  border:0;background:transparent;cursor:pointer;
-  font-size:24px;padding:9px
-}
-.search-btn{
-  border:0;background:#087ff5;color:#fff;
-  min-width:125px;padding:15px 24px;
-  border-radius:40px;font-size:18px;
-  font-weight:800;cursor:pointer
-}
+.search-icon{font-size:30px;color:#1769e0;line-height:1}
+.search-input{flex:1;min-width:0;border:0;outline:0;font-size:20px;color:#222;background:transparent}
+.icon-btn{border:0;background:transparent;cursor:pointer;font-size:23px;padding:8px}
+.search-btn{border:0;background:#087ff5;color:#fff;min-width:122px;padding:15px 22px;border-radius:40px;font-size:18px;font-weight:800;cursor:pointer}
 .search-btn:hover{background:#0068d8}
 
-.tabs{
-  display:flex;justify-content:center;gap:12px;
-  flex-wrap:wrap
-}
+.tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
 .tab{
-  border:1px solid rgba(255,255,255,.22);
-  color:#fff;background:rgba(20,42,65,.58);
-  backdrop-filter:blur(10px);
-  padding:13px 23px;border-radius:35px;
-  cursor:pointer;font-weight:700;font-size:16px
+ border:1px solid #ffffff2e;color:#fff;background:#142a4199;
+ backdrop-filter:blur(10px);padding:12px 19px;border-radius:35px;
+ cursor:pointer;font-weight:700;font-size:15px
 }
 .tab.active{background:#fff;color:#126de0}
-.more-menu{
-  display:none;
-  width:min(100%,720px);
-  margin:14px auto 0;
-  padding:12px;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  background:rgba(8,25,42,.80);
-  border:1px solid rgba(255,255,255,.18);
-  border-radius:22px;
-  backdrop-filter:blur(14px);
-  box-shadow:0 18px 45px #0006;
+.more-tab{background:#087ff5;border-color:#087ff5}
+.more-panel{
+ display:none;width:min(900px,100%);margin:13px auto 0;padding:13px;
+ grid-template-columns:repeat(4,1fr);gap:10px;
+ background:#08192ae6;border:1px solid #ffffff2c;border-radius:22px;
+ backdrop-filter:blur(14px);box-shadow:0 18px 45px #0007
 }
-.more-menu.show{display:grid}
-.more-menu button{
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:16px;
-  padding:12px 10px;
-  color:#fff;
-  background:rgba(255,255,255,.10);
-  cursor:pointer;
-  font-weight:700;
+.more-panel.open{display:grid}
+.more-panel button{
+ border:1px solid #ffffff22;background:#ffffff12;color:#fff;
+ border-radius:15px;padding:12px 8px;font-weight:700;cursor:pointer
 }
-.more-menu button:hover{background:rgba(255,255,255,.20)}
-
+.more-panel button:hover{background:#ffffff25}
 .bottom-card{
-  width:min(100%,500px);margin:48px auto 0;
-  padding:18px 25px;border-radius:28px;
-  background:rgba(20,35,45,.62);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.15);
-  box-shadow:0 15px 40px #0004
+ width:min(500px,100%);margin:42px auto 0;padding:17px 24px;
+ border-radius:28px;background:#14232db0;backdrop-filter:blur(12px);
+ border:1px solid #ffffff22;box-shadow:0 15px 40px #0005
 }
-.bottom-card .big{font-family:cursive;font-size:29px}
-.bottom-card .small{letter-spacing:4px;margin-top:12px;font-size:14px}
-
-.status{margin-top:20px;font-size:13px;text-shadow:0 2px 8px #000}
-
-@media(max-width:850px){
-  .side{display:none}
-  main{padding-top:65px}
-}
+.big{font-family:cursive;font-size:29px}.small{letter-spacing:4px;margin-top:10px;font-size:14px}
+.status{margin-top:15px;font-size:12px;text-shadow:0 2px 8px #000}
+@media(max-width:900px){.side{display:none}main{padding-top:65px}}
 @media(max-width:600px){
-  body::before{background-position:center center}
-  .page{padding:14px 12px 28px}
-  header{align-items:center}
-  .logo{font-size:21px}
-  .top-links{gap:6px}
-  .top-links a{display:none}
-  .theme{padding:7px 12px;font-size:18px}
-  main{padding-top:55px}
-  h1{font-size:39px;letter-spacing:1px}
-  .subtitle{font-size:17px;margin-top:14px}
-  .search-box{
-    margin-top:45px;
-    padding:6px 7px 6px 12px;
-    gap:3px;min-height:58px
-  }
-  .search-icon{font-size:24px}
-  .search-input{font-size:15px}
-  .icon-btn{font-size:19px;padding:6px}
-  .search-btn{
-    min-width:78px;padding:12px 12px;
-    font-size:14px
-  }
-  .tab{padding:10px 12px;font-size:13px}
-  .more-menu{grid-template-columns:repeat(2,1fr);border-radius:18px}
-  .bottom-card{margin-top:32px}
-  .bottom-card .big{font-size:24px}
+ .content{padding:14px 10px 30px}
+ .logo{font-size:21px}.top a{display:none}.theme{font-size:17px;padding:7px 11px}
+ main{padding-top:52px}
+ h1{font-size:38px;letter-spacing:1px}
+ .subtitle{font-size:16px;margin-top:13px}
+ .search-box{margin-top:42px;padding:6px 7px 6px 12px;gap:2px}
+ .search-icon{font-size:24px}.search-input{font-size:15px}
+ .icon-btn{font-size:18px;padding:6px}
+ .search-btn{min-width:80px;padding:12px 10px;font-size:14px}
+ .tabs{gap:7px}.tab{padding:9px 12px;font-size:12px}
+ .more-panel{grid-template-columns:repeat(2,1fr);border-radius:18px}
+ .bottom-card{margin-top:30px}.big{font-size:24px}.small{font-size:11px}
+}
+@media(max-width:350px){
+ .icon-btn{display:none}
+ .search-btn{min-width:75px}
 }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="bg"></div>
+<div class="content">
 <header>
-  <div class="logo">ASIM <span>TECH</span></div>
-  <div class="top-links">
-    <a href="https://www.google.com" target="_blank">Google</a>
-    <a href="https://www.youtube.com" target="_blank">YouTube</a>
-    <a href="https://translate.google.com" target="_blank">Translate</a>
-    <button class="theme" onclick="toggleTheme()" title="Change appearance">☀️</button>
-  </div>
+ <div class="logo">ASIM <span>TECH</span></div>
+ <div class="top">
+  <a href="https://www.google.com" target="_blank">Google</a>
+  <a href="https://www.youtube.com" target="_blank">YouTube</a>
+  <a href="https://translate.google.com" target="_blank">Translate</a>
+  <button class="theme" onclick="document.body.classList.toggle('bright')">☀️</button>
+ </div>
 </header>
-
 <main>
 <section class="hero">
-  <div class="side left">Knowledge<br>has no limits<br>— ASIM TECH</div>
-  <div class="side right">Explore<br>Learn<br>Discover<br><span>a Better Tomorrow</span></div>
+ <div class="side left">Knowledge<br>has no limits<br>— ASIM TECH</div>
+ <div class="side right">Explore<br>Learn<br>Discover<br>a Better Tomorrow</div>
+ <h1>ASIM <span>TECH</span> SEARCH</h1>
+ <div class="subtitle">Search · Explore · Learn · Discover</div>
 
-  <h1>ASIM <span>TECH</span> SEARCH</h1>
-  <div class="subtitle">Search · Explore · Learn · Discover</div>
+ <div class="search-box">
+  <div class="search-icon">⌕</div>
+  <input id="searchInput" class="search-input" placeholder="Search anything..." onkeydown="if(event.key==='Enter')performSearch()">
+  <button class="icon-btn" onclick="voiceSearch()" title="Voice Search">🎙️</button>
+  <button class="icon-btn" onclick="visualSearch()" title="Visual Search">📷</button>
+  <button class="search-btn" onclick="performSearch()">Search</button>
+ </div>
 
-  <div class="search-box">
-    <div class="search-icon">⌕</div>
-    <input id="searchInput" class="search-input" placeholder="Search anything..."
-           onkeydown="if(event.key==='Enter')performSearch()">
-    <button class="icon-btn" onclick="voiceSearch()" title="Voice Search">🎙️</button>
-    <button class="icon-btn" onclick="visualSearch()" title="Visual Search">📷</button>
-    <button class="search-btn" onclick="performSearch()">Search</button>
-  </div>
+ <div class="tabs">
+  <button class="tab active" onclick="searchType('web',this)">🌐 Web</button>
+  <button class="tab" onclick="searchType('images',this)">🖼️ Images</button>
+  <button class="tab" onclick="searchType('news',this)">📰 News</button>
+  <button class="tab" onclick="searchType('videos',this)">▶️ Videos</button>
+  <button class="tab" onclick="searchType('scholar',this)">🎓 Scholar</button>
+  <button class="tab" onclick="searchType('maps',this)">📍 Maps</button>
+  <button class="tab" onclick="searchType('ai',this)">🤖 AI</button>
+  <button class="tab more-tab" onclick="toggleMore(event)">••• More</button>
+ </div>
 
-  <div class="tabs">
-    <button class="tab active" onclick="searchType('web',this)">🌐 Web</button>
-    <button class="tab" onclick="searchType('images',this)">🖼️ Images</button>
-    <button class="tab" onclick="searchType('news',this)">📰 News</button>
-    <button class="tab" onclick="searchType('videos',this)">▶️ Videos</button>
-    <button class="tab" onclick="searchType('scholar',this)">🎓 Scholar</button>
-    <button class="tab" onclick="searchType('maps',this)">📍 Maps</button>
-    <button class="tab" onclick="searchType('ai',this)">🤖 AI</button>
-    <button class="tab more-tab" onclick="toggleMore(event)">••• More</button>
-  </div>
+ <div id="morePanel" class="more-panel">
+  <button onclick="openTool('https://translate.google.com')">🌐 Translate</button>
+  <button onclick="openTool('https://www.google.com/search?q=calculator')">🧮 Calculator</button>
+  <button onclick="openTool('https://www.google.com/search?q=weather')">🌤️ Weather</button>
+  <button onclick="openTool('https://scholar.google.com')">🎓 Scholar</button>
+  <button onclick="openTool('https://www.google.com/search?q=PDF+tools')">📄 PDF Tools</button>
+  <button onclick="openTool('https://www.google.com/maps')">🗺️ Maps</button>
+  <button onclick="openTool('https://mail.google.com')">✉️ Gmail</button>
+  <button onclick="openTool('https://drive.google.com')">📁 Drive</button>
+ </div>
 
-  <div id="moreMenu" class="more-menu">
-    <button onclick="quickOpen('https://translate.google.com')">🌐 Translate</button>
-    <button onclick="quickOpen('https://www.google.com/search?q=calculator')">🧮 Calculator</button>
-    <button onclick="quickOpen('https://www.google.com/search?q=weather')">🌤️ Weather</button>
-    <button onclick="quickOpen('https://scholar.google.com')">🎓 Scholar</button>
-    <button onclick="quickOpen('https://www.google.com/search?q=PDF+tools')">📄 PDF Tools</button>
-    <button onclick="quickOpen('https://www.google.com/maps')">🗺️ Maps</button>
-  </div>
-
-  <div class="bottom-card">
-    <div class="big">A Better Tomorrow</div>
-    <div class="small">THROUGH KNOWLEDGE</div>
-  </div>
-  <div id="status" class="status"></div>
+ <div class="bottom-card">
+  <div class="big">A Better Tomorrow</div>
+  <div class="small">THROUGH KNOWLEDGE</div>
+ </div>
+ <div id="status" class="status"></div>
 </section>
 </main>
 </div>
-
 <script>
 let type="web";
-
-function q(){
-  return document.getElementById("searchInput").value.trim();
-}
-
+const input=()=>document.getElementById("searchInput").value.trim();
 function performSearch(){
-  const query=q();
-  if(!query){document.getElementById("searchInput").focus();return;}
-  let url="https://www.google.com/search?q="+encodeURIComponent(query);
-
-  if(type==="images") url="https://www.google.com/search?tbm=isch&q="+encodeURIComponent(query);
-  if(type==="news") url="https://www.google.com/search?tbm=nws&q="+encodeURIComponent(query);
-  if(type==="videos") url="https://www.youtube.com/results?search_query="+encodeURIComponent(query);
-  if(type==="scholar") url="https://scholar.google.com/scholar?q="+encodeURIComponent(query);
-  if(type==="maps") url="https://www.google.com/maps/search/"+encodeURIComponent(query);
-  if(type==="ai") url="https://chatgpt.com/?q="+encodeURIComponent(query);
-
-  window.open(url,"_blank");
+ const q=input(); if(!q){document.getElementById("searchInput").focus();return}
+ let u="https://www.google.com/search?q="+encodeURIComponent(q);
+ if(type==="images")u="https://www.google.com/search?tbm=isch&q="+encodeURIComponent(q);
+ if(type==="news")u="https://www.google.com/search?tbm=nws&q="+encodeURIComponent(q);
+ if(type==="videos")u="https://www.youtube.com/results?search_query="+encodeURIComponent(q);
+ if(type==="scholar")u="https://scholar.google.com/scholar?q="+encodeURIComponent(q);
+ if(type==="maps")u="https://www.google.com/maps/search/"+encodeURIComponent(q);
+ if(type==="ai")u="https://chatgpt.com/?q="+encodeURIComponent(q);
+ window.open(u,"_blank");
 }
-
 function searchType(t,el){
-  type=t;
-  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
-  el.classList.add("active");
-  document.getElementById("searchInput").focus();
+ type=t;document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));el.classList.add("active");
+ document.getElementById("searchInput").focus();
 }
-
+function toggleMore(e){e.stopPropagation();document.getElementById("morePanel").classList.toggle("open")}
+function openTool(u){window.open(u,"_blank");document.getElementById("morePanel").classList.remove("open")}
+document.addEventListener("click",e=>{
+ const p=document.getElementById("morePanel");
+ if(!p.contains(e.target)&&!e.target.closest(".more-tab"))p.classList.remove("open");
+});
 function voiceSearch(){
-  const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-  if(!SpeechRecognition){
-    alert("Voice search is not supported in this browser.");
-    return;
-  }
-  const r=new SpeechRecognition();
-  r.lang="bn-IN";
-  r.interimResults=false;
-  r.onresult=e=>{
-    document.getElementById("searchInput").value=e.results[0][0].transcript;
-    performSearch();
-  };
-  r.start();
+ const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+ if(!SR){alert("Voice search is not supported in this browser.");return}
+ const r=new SR();r.lang="bn-IN";r.interimResults=false;
+ r.onresult=e=>{document.getElementById("searchInput").value=e.results[0][0].transcript;performSearch()};r.start();
 }
-
-function visualSearch(){
-  window.open("https://lens.google.com/","_blank");
-}
-
-function toggleMore(e){
-  e.stopPropagation();
-  document.getElementById("moreMenu").classList.toggle("show");
-}
-function quickOpen(url){
-  window.open(url,"_blank");
-  document.getElementById("moreMenu").classList.remove("show");
-}
-document.addEventListener("click",function(e){
-  const menu=document.getElementById("moreMenu");
-  if(menu && !menu.contains(e.target) && !e.target.closest(".more-tab")){
-    menu.classList.remove("show");
-  }
-}
-
-function toggleTheme(){
-  const body=document.body;
-  if(body.dataset.light==="1"){
-    body.dataset.light="0";
-    body.style.filter="";
-  }else{
-    body.dataset.light="1";
-    body.style.filter="brightness(1.12)";
-  }
-}
+function visualSearch(){window.open("https://lens.google.com/","_blank")}
+if("serviceWorker" in navigator)navigator.serviceWorker.register("./sw.js?v=8").catch(()=>{});
 </script>
-<script>if("serviceWorker" in navigator){navigator.serviceWorker.register("./sw.js").catch(()=>{});}</script>
 </body>
 </html>
