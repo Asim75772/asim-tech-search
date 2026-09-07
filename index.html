@@ -6,98 +6,1184 @@
 <meta name="theme-color" content="#07152e">
 <meta name="description" content="ASIM TECH Search — Web, Images, News, Videos, Scholar, Maps and more.">
 <title>ASIM TECH SEARCH</title>
+
 <style>
-:root{--ink:#08152e;--blue:#1769ff;--glass:rgba(255,255,255,.9);--line:rgba(255,255,255,.28)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Noto Sans Bengali,sans-serif;color:#fff;background:#07152e}
-body:before{content:"";position:fixed;inset:0;background:linear-gradient(180deg,rgba(3,15,35,.16),rgba(3,15,35,.82)),url("assets/mountain-bg.png") center/cover no-repeat;z-index:-2}
-body:after{content:"";position:fixed;inset:0;background:radial-gradient(circle at 50% 20%,transparent 0,rgba(2,10,25,.15) 45%,rgba(2,10,25,.48) 100%);z-index:-1;pointer-events:none}
-header{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);backdrop-filter:blur(10px);background:rgba(4,15,34,.25)}
-.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:1.5px}.logo{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#bcd4ff);color:#0a43a8;font-size:20px;box-shadow:0 8px 28px #0004}.brand small{display:block;font-size:9px;opacity:.7;letter-spacing:2px}
-nav{display:flex;gap:7px;align-items:center}nav a,.round{color:#fff;text-decoration:none;border:1px solid var(--line);background:#ffffff12;padding:9px 13px;border-radius:999px;font-size:13px}.round{cursor:pointer}
-main{min-height:calc(100vh - 72px);display:flex;flex-direction:column;align-items:center;padding:8vh 18px 50px}
-.hero{text-align:center;max-width:1050px;width:100%}.eyebrow{font-size:12px;letter-spacing:4px;text-transform:uppercase;opacity:.85}.hero h1{font-size:clamp(40px,8vw,82px);line-height:.95;margin:13px 0 14px;font-weight:900;letter-spacing:-3px;text-shadow:0 10px 35px #0007}.hero h1 span{background:linear-gradient(90deg,#fff,#8ec1ff);-webkit-background-clip:text;color:transparent}
-.tagline{font-size:clamp(14px,2.5vw,20px);opacity:.9;margin:0 auto 28px}.searchbox{max-width:940px;margin:auto;display:flex;align-items:center;gap:8px;padding:8px 9px 8px 18px;border-radius:24px;background:var(--glass);box-shadow:0 25px 70px #0007;color:#17233c}.searchbox input{flex:1;min-width:0;border:0;outline:0;background:transparent;font-size:17px;padding:13px 4px;color:#12203b}.ico{border:0;background:transparent;font-size:20px;cursor:pointer;opacity:.7;padding:8px}.searchbtn{border:0;border-radius:17px;background:linear-gradient(135deg,#1769ff,#0750d9);color:#fff;font-weight:800;padding:14px 23px;cursor:pointer;box-shadow:0 8px 25px #1769ff55}.suggest{margin:12px auto 0;font-size:12px;opacity:.75}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:24px auto 0}.tabs button{border:1px solid #ffffff42;color:#fff;background:#ffffff12;padding:10px 16px;border-radius:999px;cursor:pointer;font-weight:650;backdrop-filter:blur(8px)}.tabs button.active,.tabs button:hover{background:#fff;color:#123b82}
-.cards{width:min(1050px,100%);display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:40px}.card{padding:18px 14px;border:1px solid #fff3;border-radius:20px;background:#071a36aa;backdrop-filter:blur(13px);text-decoration:none;color:#fff;transition:.2s}.card:hover{transform:translateY(-4px);background:#ffffff18}.card b{display:block;margin-top:9px}.card span{font-size:11px;opacity:.7}.symbol{font-size:24px}
-.quote{width:min(850px,100%);margin:26px auto 0;padding:18px 22px;border-radius:22px;background:#fff;color:#17233c;box-shadow:0 20px 55px #0005;text-align:center}.quote strong{display:block;font-size:17px}.quote small{opacity:.65}
-.lower{width:min(1050px,100%);display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}.panel{border:1px solid #fff2;border-radius:22px;padding:18px;background:#061733aa;backdrop-filter:blur(13px)}.panel h3{margin:0 0 12px}.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid #fff2;background:#fff0;color:#fff;padding:8px 11px;border-radius:999px;cursor:pointer;font-size:12px}
-footer{padding:25px;text-align:center;font-size:11px;opacity:.6}
-@media(max-width:800px){header{padding:0 16px}.brand span{display:none}nav a{display:none}main{padding-top:7vh}.hero h1{letter-spacing:-2px}.searchbox{border-radius:20px;padding-left:12px}.searchbox input{font-size:15px}.searchbtn{padding:12px 15px}.cards{grid-template-columns:repeat(3,1fr)}.lower{grid-template-columns:1fr}.card{padding:15px 10px}.quote{margin-top:20px}}
-@media(max-width:480px){.cards{grid-template-columns:repeat(2,1fr)}.tabs button{padding:9px 12px;font-size:12px}.ico{display:none}.hero h1{font-size:43px}.tagline{font-size:14px}}
+:root{
+  --ink:#08152e;
+  --blue:#1769ff;
+  --glass:rgba(255,255,255,.93);
+  --line:rgba(255,255,255,.35);
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,Segoe UI,Noto Sans Bengali,sans-serif;
+  color:#fff;
+  background:#07152e;
+}
+
+/* =========================
+   MOUNTAIN BACKGROUND
+   ========================= */
+
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,15,35,.02),
+      rgba(3,15,35,.22)
+    ),
+    url("assets/mountain-bg.png") center center/cover no-repeat;
+  z-index:-2;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      transparent 0,
+      rgba(2,10,25,.02) 45%,
+      rgba(2,10,25,.12) 100%
+    );
+  z-index:-1;
+  pointer-events:none;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+
+header{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5vw;
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(8px);
+  background:rgba(4,15,34,.18);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  font-weight:800;
+  letter-spacing:1.5px;
+}
+
+.logo{
+  width:42px;
+  height:42px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#fff,#bcd4ff);
+  color:#0a43a8;
+  font-size:20px;
+  box-shadow:0 8px 28px #0004;
+}
+
+.brand small{
+  display:block;
+  font-size:9px;
+  opacity:.7;
+  letter-spacing:2px;
+}
+
+nav{
+  display:flex;
+  gap:7px;
+  align-items:center;
+}
+
+nav a,
+.round{
+  color:#fff;
+  text-decoration:none;
+  border:1px solid var(--line);
+  background:#ffffff12;
+  padding:9px 13px;
+  border-radius:999px;
+  font-size:13px;
+}
+
+.round{
+  cursor:pointer;
+}
+
+/* =========================
+   MAIN
+   ========================= */
+
+main{
+  min-height:calc(100vh - 72px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding:8vh 18px 50px;
+}
+
+.hero{
+  text-align:center;
+  max-width:1050px;
+  width:100%;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  opacity:.9;
+  text-shadow:0 2px 8px #000;
+}
+
+.hero h1{
+  font-size:clamp(40px,8vw,82px);
+  line-height:.95;
+  margin:13px 0 14px;
+  font-weight:900;
+  letter-spacing:-3px;
+  text-shadow:
+    0 5px 18px rgba(0,0,0,.75),
+    0 10px 35px rgba(0,0,0,.5);
+}
+
+.hero h1 span{
+  background:linear-gradient(90deg,#fff,#8ec1ff);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+.tagline{
+  font-size:clamp(14px,2.5vw,20px);
+  opacity:.95;
+  margin:0 auto 28px;
+  text-shadow:0 2px 8px #000;
+}
+
+/* =========================
+   SEARCH BOX
+   ========================= */
+
+.searchbox{
+  max-width:940px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 9px 8px 18px;
+  border-radius:24px;
+  background:var(--glass);
+  box-shadow:0 25px 70px #0007;
+  color:#17233c;
+}
+
+.searchbox input{
+  flex:1;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  font-size:17px;
+  padding:13px 4px;
+  color:#12203b;
+}
+
+.searchbox input::placeholder{
+  color:#707070;
+}
+
+.ico{
+  border:0;
+  background:transparent;
+  font-size:20px;
+  cursor:pointer;
+  opacity:.7;
+  padding:8px;
+}
+
+.ico:hover{
+  opacity:1;
+}
+
+.searchbtn{
+  border:0;
+  border-radius:17px;
+  background:linear-gradient(135deg,#1769ff,#0750d9);
+  color:#fff;
+  font-weight:800;
+  padding:14px 23px;
+  cursor:pointer;
+  box-shadow:0 8px 25px #1769ff55;
+}
+
+.searchbtn:hover{
+  transform:translateY(-1px);
+}
+
+.suggest{
+  margin:12px auto 0;
+  font-size:12px;
+  opacity:.9;
+  text-shadow:0 2px 7px #000;
+}
+
+/* =========================
+   SEARCH TABS
+   ========================= */
+
+.tabs{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  justify-content:center;
+  margin:24px auto 0;
+}
+
+.tabs button{
+  border:1px solid #ffffff55;
+  color:#fff;
+  background:rgba(7,26,54,.38);
+  padding:10px 16px;
+  border-radius:999px;
+  cursor:pointer;
+  font-weight:650;
+  backdrop-filter:blur(8px);
+  box-shadow:0 4px 15px #0002;
+}
+
+.tabs button.active,
+.tabs button:hover{
+  background:#fff;
+  color:#123b82;
+}
+
+/* =========================
+   QUOTE
+   ========================= */
+
+.quote{
+  width:min(850px,100%);
+  margin:26px auto 0;
+  padding:18px 22px;
+  border-radius:22px;
+  background:rgba(255,255,255,.95);
+  color:#17233c;
+  box-shadow:0 20px 55px #0005;
+  text-align:center;
+}
+
+.quote strong{
+  display:block;
+  font-size:17px;
+}
+
+.quote small{
+  opacity:.65;
+}
+
+/* =========================
+   QUICK ACCESS CARDS
+   ========================= */
+
+.cards{
+  width:min(1050px,100%);
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:12px;
+  margin-top:40px;
+}
+
+.card{
+  padding:18px 14px;
+  border:1px solid #fff4;
+  border-radius:20px;
+  background:rgba(7,26,54,.48);
+  backdrop-filter:blur(10px);
+  text-decoration:none;
+  color:#fff;
+  transition:.2s;
+  box-shadow:0 10px 35px #0003;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.16);
+}
+
+.card b{
+  display:block;
+  margin-top:9px;
+}
+
+.card span{
+  font-size:11px;
+  opacity:.75;
+}
+
+.symbol{
+  font-size:24px;
+}
+
+/* =========================
+   LOWER PANELS
+   ========================= */
+
+.lower{
+  width:min(1050px,100%);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:20px;
+}
+
+.panel{
+  border:1px solid #fff3;
+  border-radius:22px;
+  padding:18px;
+  background:rgba(6,23,51,.48);
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 35px #0003;
+}
+
+.panel h3{
+  margin:0 0 12px;
+}
+
+.chips{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+
+.chip{
+  border:1px solid #fff3;
+  background:#ffffff10;
+  color:#fff;
+  padding:8px 11px;
+  border-radius:999px;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.chip:hover{
+  background:#fff;
+  color:#123b82;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer{
+  padding:25px;
+  text-align:center;
+  font-size:11px;
+  opacity:.7;
+  text-shadow:0 2px 5px #000;
+}
+
+/* =========================
+   TABLET
+   ========================= */
+
+@media(max-width:800px){
+
+  header{
+    padding:0 16px;
+  }
+
+  nav a{
+    display:none;
+  }
+
+  main{
+    padding-top:7vh;
+  }
+
+  .hero h1{
+    letter-spacing:-2px;
+  }
+
+  .searchbox{
+    border-radius:20px;
+    padding-left:12px;
+  }
+
+  .searchbox input{
+    font-size:15px;
+  }
+
+  .searchbtn{
+    padding:12px 15px;
+  }
+
+  .cards{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .lower{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:15px 10px;
+  }
+
+  .quote{
+    margin-top:20px;
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media(max-width:480px){
+
+  body:before{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(3,15,35,.02),
+        rgba(3,15,35,.18)
+      ),
+      url("assets/mountain-bg.png") center center/cover no-repeat;
+  }
+
+  .brand small{
+    font-size:8px;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .tabs button{
+    padding:9px 12px;
+    font-size:12px;
+  }
+
+  .ico{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:43px;
+  }
+
+  .tagline{
+    font-size:14px;
+  }
+
+  .searchbox{
+    padding:7px;
+  }
+
+  .searchbox input{
+    padding-left:7px;
+  }
+
+  .searchbtn{
+    padding:12px 14px;
+    border-radius:15px;
+  }
+
+  .quote strong{
+    font-size:15px;
+  }
+}
+
+/* =========================
+   VERY SMALL MOBILE
+   ========================= */
+
+@media(max-width:360px){
+
+  .hero h1{
+    font-size:37px;
+  }
+
+  .tabs{
+    gap:5px;
+  }
+
+  .tabs button{
+    padding:8px 10px;
+  }
+
+  .searchbtn{
+    font-size:13px;
+    padding:11px 12px;
+  }
+}
 </style>
 </head>
+
 <body>
+
+<!-- =========================
+     HEADER
+     ========================= -->
+
 <header>
-  <div class="brand"><div class="logo">A</div><div>ASIM TECH<small>SEARCH • EXPLORE • DISCOVER</small></div></div>
-  <nav><a href="https://www.google.com" target="_blank">Google</a><a href="https://www.youtube.com" target="_blank">YouTube</a><a href="https://mail.google.com" target="_blank">Gmail</a><a href="https://news.google.com" target="_blank">News</a><button class="round" id="theme">☼</button></nav>
+
+  <div class="brand">
+
+    <div class="logo">
+      A
+    </div>
+
+    <div>
+      ASIM TECH
+
+      <small>
+        SEARCH • EXPLORE • DISCOVER
+      </small>
+    </div>
+
+  </div>
+
+  <nav>
+
+    <a href="https://www.google.com" target="_blank">
+      Google
+    </a>
+
+    <a href="https://www.youtube.com" target="_blank">
+      YouTube
+    </a>
+
+    <a href="https://mail.google.com" target="_blank">
+      Gmail
+    </a>
+
+    <a href="https://news.google.com" target="_blank">
+      News
+    </a>
+
+    <button class="round" id="theme">
+      ☼
+    </button>
+
+  </nav>
+
 </header>
 
+
+<!-- =========================
+     MAIN
+     ========================= -->
+
 <main>
+
 <section class="hero">
-  <div class="eyebrow">Knowledge has no limits</div>
-  <h1>ASIM TECH <span>SEARCH</span></h1>
-  <p class="tagline">Explore • Learn • Discover • A Better Tomorrow</p>
+
+  <div class="eyebrow">
+    Knowledge has no limits
+  </div>
+
+  <h1>
+    ASIM TECH <span>SEARCH</span>
+  </h1>
+
+  <p class="tagline">
+    Explore • Learn • Discover • A Better Tomorrow
+  </p>
+
+
+  <!-- SEARCH -->
 
   <form class="searchbox" id="searchForm">
-    <span>⌕</span><input id="q" autocomplete="off" placeholder="Search the web in বাংলা or English…" aria-label="Search">
-    <button type="button" class="ico" id="mic" title="Voice search">🎙</button>
-    <button type="button" class="ico" id="visual" title="Google Lens / visual search">◉</button>
-    <button class="searchbtn">Search</button>
+
+    <span>
+      ⌕
+    </span>
+
+    <input
+      id="q"
+      autocomplete="off"
+      placeholder="Search the web in বাংলা or English…"
+      aria-label="Search"
+    >
+
+    <button
+      type="button"
+      class="ico"
+      id="mic"
+      title="Voice search">
+      🎙
+    </button>
+
+    <button
+      type="button"
+      class="ico"
+      id="visual"
+      title="Google Lens">
+      ◉
+    </button>
+
+    <button class="searchbtn">
+      Search
+    </button>
+
   </form>
-  <div class="suggest">Try: রবীন্দ্রনাথ ঠাকুর • West Bengal • India • Technology</div>
+
+
+  <div class="suggest">
+    Try: রবীন্দ্রনাথ ঠাকুর • West Bengal • India • Technology
+  </div>
+
+
+  <!-- SEARCH MODES -->
 
   <div class="tabs" id="tabs">
-    <button class="active" data-mode="web">🌐 Web</button>
-    <button data-mode="images">🖼 Images</button>
-    <button data-mode="news">📰 News</button>
-    <button data-mode="videos">▶ Videos</button>
-    <button data-mode="scholar">🎓 Scholar</button>
-    <button data-mode="maps">📍 Maps</button>
+
+    <button class="active" data-mode="web">
+      🌐 Web
+    </button>
+
+    <button data-mode="images">
+      🖼 Images
+    </button>
+
+    <button data-mode="news">
+      📰 News
+    </button>
+
+    <button data-mode="videos">
+      ▶ Videos
+    </button>
+
+    <button data-mode="scholar">
+      🎓 Scholar
+    </button>
+
+    <button data-mode="maps">
+      📍 Maps
+    </button>
+
   </div>
+
 </section>
 
-<div class="quote"><strong>“জ্ঞান যেখানে সীমাহীন, অনুসন্ধান সেখানে থেমে থাকে না।”</strong><small> — ASIM TECH</small></div>
+
+<!-- =========================
+     QUOTE
+     ========================= -->
+
+<div class="quote">
+
+  <strong>
+    “জ্ঞান যেখানে সীমাহীন, অনুসন্ধান সেখানে থেমে থাকে না।”
+  </strong>
+
+  <small>
+    — ASIM TECH
+  </small>
+
+</div>
+
+
+<!-- =========================
+     QUICK ACCESS
+     ========================= -->
 
 <section class="cards">
-  <a class="card" href="https://www.google.com" target="_blank"><div class="symbol">G</div><b>Google</b><span>Web Search</span></a>
-  <a class="card" href="https://www.youtube.com" target="_blank"><div class="symbol">▶</div><b>YouTube</b><span>Videos</span></a>
-  <a class="card" href="https://images.google.com" target="_blank"><div class="symbol">▧</div><b>Images</b><span>Visual search</span></a>
-  <a class="card" href="https://news.google.com" target="_blank"><div class="symbol">📰</div><b>News</b><span>Latest stories</span></a>
-  <a class="card" href="https://scholar.google.com" target="_blank"><div class="symbol">🎓</div><b>Scholar</b><span>Research papers</span></a>
-  <a class="card" href="https://maps.google.com" target="_blank"><div class="symbol">📍</div><b>Maps</b><span>Places & routes</span></a>
+
+  <a
+    class="card"
+    href="https://www.google.com"
+    target="_blank">
+
+    <div class="symbol">
+      G
+    </div>
+
+    <b>
+      Google
+    </b>
+
+    <span>
+      Web Search
+    </span>
+
+  </a>
+
+
+  <a
+    class="card"
+    href="https://www.youtube.com"
+    target="_blank">
+
+    <div class="symbol">
+      ▶
+    </div>
+
+    <b>
+      YouTube
+    </b>
+
+    <span>
+      Videos
+    </span>
+
+  </a>
+
+
+  <a
+    class="card"
+    href="https://images.google.com"
+    target="_blank">
+
+    <div class="symbol">
+      ▧
+    </div>
+
+    <b>
+      Images
+    </b>
+
+    <span>
+      Visual Search
+    </span>
+
+  </a>
+
+
+  <a
+    class="card"
+    href="https://news.google.com"
+    target="_blank">
+
+    <div class="symbol">
+      📰
+    </div>
+
+    <b>
+      News
+    </b>
+
+    <span>
+      Latest Stories
+    </span>
+
+  </a>
+
+
+  <a
+    class="card"
+    href="https://scholar.google.com"
+    target="_blank">
+
+    <div class="symbol">
+      🎓
+    </div>
+
+    <b>
+      Scholar
+    </b>
+
+    <span>
+      Research Papers
+    </span>
+
+  </a>
+
+
+  <a
+    class="card"
+    href="https://maps.google.com"
+    target="_blank">
+
+    <div class="symbol">
+      📍
+    </div>
+
+    <b>
+      Maps
+    </b>
+
+    <span>
+      Places & Routes
+    </span>
+
+  </a>
+
 </section>
+
+
+<!-- =========================
+     TRENDING / RECENT
+     ========================= -->
 
 <section class="lower">
-  <div class="panel"><h3>🔥 Trending Searches</h3><div class="chips" id="trending">
-    <button class="chip">West Bengal</button><button class="chip">India</button><button class="chip">Technology</button><button class="chip">Kolkata</button><button class="chip">AI</button><button class="chip">Education</button>
-  </div></div>
-  <div class="panel"><h3>🕘 Recent Searches</h3><div class="chips" id="recent"><span style="opacity:.6;font-size:12px">Your searches will appear here.</span></div></div>
+
+  <div class="panel">
+
+    <h3>
+      🔥 Trending Searches
+    </h3>
+
+    <div class="chips" id="trending">
+
+      <button class="chip">
+        West Bengal
+      </button>
+
+      <button class="chip">
+        India
+      </button>
+
+      <button class="chip">
+        Technology
+      </button>
+
+      <button class="chip">
+        Kolkata
+      </button>
+
+      <button class="chip">
+        AI
+      </button>
+
+      <button class="chip">
+        Education
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="panel">
+
+    <h3>
+      🕘 Recent Searches
+    </h3>
+
+    <div class="chips" id="recent">
+
+      <span style="opacity:.7;font-size:12px">
+        Your searches will appear here.
+      </span>
+
+    </div>
+
+  </div>
+
 </section>
+
 </main>
-<footer>© 2026 ASIM TECH • Smart Search Interface</footer>
+
+
+<footer>
+  © 2026 ASIM TECH • Smart Search Interface
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
 
 <script>
-let mode="web";
-const q=document.getElementById("q"), form=document.getElementById("searchForm");
-document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("active"));b.classList.add("active");mode=b.dataset.mode;q.focus()});
+
+let mode = "web";
+
+const q = document.getElementById("q");
+
+const form = document.getElementById("searchForm");
+
+
+/* SEARCH MODE */
+
+document
+.querySelectorAll("#tabs button")
+.forEach(button => {
+
+  button.onclick = () => {
+
+    document
+    .querySelectorAll("#tabs button")
+    .forEach(x => {
+      x.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    mode = button.dataset.mode;
+
+    q.focus();
+
+  };
+
+});
+
+
+/* SEARCH FUNCTION */
+
 function search(){
- const text=q.value.trim(); if(!text)return;
- let url;
- const enc=encodeURIComponent(text);
- if(mode==="images") url="https://www.google.com/search?tbm=isch&q="+enc;
- else if(mode==="news") url="https://news.google.com/search?q="+enc;
- else if(mode==="videos") url="https://www.youtube.com/results?search_query="+enc;
- else if(mode==="scholar") url="https://scholar.google.com/scholar?q="+enc;
- else if(mode==="maps") url="https://www.google.com/maps/search/"+enc;
- else url="https://www.google.com/search?q="+enc;
- let r=JSON.parse(localStorage.getItem("asim_recent")||"[]");r=[text,...r.filter(x=>x!==text)].slice(0,8);localStorage.setItem("asim_recent",JSON.stringify(r));renderRecent();window.open(url,"_blank");
+
+  const text = q.value.trim();
+
+  if(!text){
+    q.focus();
+    return;
+  }
+
+  const enc = encodeURIComponent(text);
+
+  let url;
+
+
+  if(mode === "images"){
+
+    url =
+      "https://www.google.com/search?tbm=isch&q="
+      + enc;
+
+  }
+
+  else if(mode === "news"){
+
+    url =
+      "https://news.google.com/search?q="
+      + enc;
+
+  }
+
+  else if(mode === "videos"){
+
+    url =
+      "https://www.youtube.com/results?search_query="
+      + enc;
+
+  }
+
+  else if(mode === "scholar"){
+
+    url =
+      "https://scholar.google.com/scholar?q="
+      + enc;
+
+  }
+
+  else if(mode === "maps"){
+
+    url =
+      "https://www.google.com/maps/search/"
+      + enc;
+
+  }
+
+  else{
+
+    url =
+      "https://www.google.com/search?q="
+      + enc;
+
+  }
+
+
+  /* SAVE RECENT SEARCH */
+
+  let recent =
+    JSON.parse(
+      localStorage.getItem("asim_recent") || "[]"
+    );
+
+  recent = [
+    text,
+    ...recent.filter(x => x !== text)
+  ].slice(0,8);
+
+  localStorage.setItem(
+    "asim_recent",
+    JSON.stringify(recent)
+  );
+
+  renderRecent();
+
+
+  /* OPEN SEARCH */
+
+  window.open(url,"_blank");
+
 }
-form.onsubmit=e=>{e.preventDefault();search()};
-document.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{if(c.textContent.trim()!=="Your searches will appear here."){q.value=c.textContent.trim();search()}});
-function renderRecent(){const box=document.getElementById("recent"),r=JSON.parse(localStorage.getItem("asim_recent")||"[]");box.innerHTML=r.length?r.map(x=>`<button class="chip">${x.replace(/</g,"&lt;")}</button>`).join(""):'<span style="opacity:.6;font-size:12px">Your searches will appear here.</span>';box.querySelectorAll(".chip").forEach(c=>c.onclick=()=>{q.value=c.textContent;search()})}
+
+
+/* FORM */
+
+form.onsubmit = function(e){
+
+  e.preventDefault();
+
+  search();
+
+};
+
+
+/* TRENDING */
+
+document
+.querySelectorAll("#trending .chip")
+.forEach(button => {
+
+  button.onclick = () => {
+
+    q.value = button.textContent.trim();
+
+    search();
+
+  };
+
+});
+
+
+/* RECENT SEARCH */
+
+function renderRecent(){
+
+  const box =
+    document.getElementById("recent");
+
+  const recent =
+    JSON.parse(
+      localStorage.getItem("asim_recent") || "[]"
+    );
+
+
+  if(!recent.length){
+
+    box.innerHTML =
+      '<span style="opacity:.7;font-size:12px">Your searches will appear here.</span>';
+
+    return;
+
+  }
+
+
+  box.innerHTML =
+    recent
+    .map(text =>
+      `<button class="chip">
+        ${text
+          .replace(/</g,"&lt;")
+          .replace(/>/g,"&gt;")}
+      </button>`
+    )
+    .join("");
+
+
+  box
+  .querySelectorAll(".chip")
+  .forEach(button => {
+
+    button.onclick = () => {
+
+      q.value =
+        button.textContent.trim();
+
+      search();
+
+    };
+
+  });
+
+}
+
+
+/* LOAD RECENT */
+
 renderRecent();
-document.getElementById("mic").onclick=()=>{const R=window.SpeechRecognition||window.webkitSpeechRecognition;if(!R){alert("Voice search is not supported in this browser.");return}const r=new R();r.lang="bn-IN";r.start();r.onresult=e=>{q.value=e.results[0][0].transcript;search()}};
-document.getElementById("visual").onclick=()=>window.open("https://lens.google.com/","_blank");
-document.getElementById("theme").onclick=()=>document.body.classList.toggle("light");
+
+
+/* VOICE SEARCH */
+
+document
+.getElementById("mic")
+.onclick = () => {
+
+  const Recognition =
+    window.SpeechRecognition ||
+    window.webkitSpeechRecognition;
+
+
+  if(!Recognition){
+
+    alert(
+      "Voice search is not supported in this browser."
+    );
+
+    return;
+
+  }
+
+
+  const recognition =
+    new Recognition();
+
+
+  recognition.lang = "bn-IN";
+
+  recognition.interimResults = false;
+
+  recognition.start();
+
+
+  recognition.onresult = event => {
+
+    q.value =
+      event.results[0][0].transcript;
+
+    search();
+
+  };
+
+};
+
+
+/* VISUAL SEARCH */
+
+document
+.getElementById("visual")
+.onclick = () => {
+
+  window.open(
+    "https://lens.google.com/",
+    "_blank"
+  );
+
+};
+
+
+/* THEME BUTTON */
+
+document
+.getElementById("theme")
+.onclick = () => {
+
+  document.body.classList.toggle("light");
+
+};
+
 </script>
-</body></html>
+
+</body>
+</html>
