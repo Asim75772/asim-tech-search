@@ -1,13 +1,11 @@
 {
-  "id": "./",
   "name": "ASIM TECH SEARCH",
   "short_name": "ASIM TECH",
-  "description": "ASIM TECH SEARCH — Search, Explore, Learn and Discover.",
-  "start_url": "./index.html",
+  "description": "Free search, study, legal and smart utility hub",
+  "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
-  "orientation": "portrait-primary",
+  "orientation": "portrait",
   "background_color": "#0b2036",
   "theme_color": "#0b2a4a",
   "icons": [
@@ -15,13 +13,13 @@
       "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     },
     {
       "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ]
 }
