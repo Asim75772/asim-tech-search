@@ -1,10 +1,13 @@
-const C = "asim-tech-v2";
+const C = "asim-tech-v3";
 
 const F = [
   "./",
   "./index.html",
   "./mountain-bg.png",
-  "./manifest.json"
+  "./manifest.json",
+  "./icon-180.png",
+  "./icon-192.png",
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", event => {
