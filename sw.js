@@ -1,4 +1,4 @@
-const CACHE = "asim-tech-v5";
+const CACHE = "asim-tech-v5-1";
 const FILES = [
   "./",
   "./index.html",
