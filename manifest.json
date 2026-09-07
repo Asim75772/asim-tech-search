@@ -1,0 +1,8 @@
+{
+  "name": "ASIM TECH SEARCH",
+  "short_name": "ASIM TECH",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b2036",
+  "theme_color": "#0b2a4a"
+}
