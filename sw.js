@@ -1,10 +1,9 @@
-const C = "asim-tech-v3";
-
-const F = [
+const CACHE_NAME = "asim-tech-search-v4";
+const APP_SHELL = [
   "./",
   "./index.html",
-  "./mountain-bg.png",
   "./manifest.json",
+  "./mountain-bg.png",
   "./icon-180.png",
   "./icon-192.png",
   "./icon-512.png"
@@ -12,8 +11,9 @@ const F = [
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(C).then(cache => cache.addAll(F))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL))
   );
+  self.skipWaiting();
 });
 
 self.addEventListener("activate", event => {
@@ -21,11 +21,12 @@ self.addEventListener("activate", event => {
     caches.keys().then(keys =>
       Promise.all(
         keys
-          .filter(key => key !== C)
+          .filter(key => key !== CACHE_NAME)
           .map(key => caches.delete(key))
       )
     )
   );
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", event => {
@@ -36,14 +37,11 @@ self.addEventListener("fetch", event => {
       if (cached) return cached;
 
       return fetch(event.request).then(response => {
+        if (!response || !response.ok) return response;
         const copy = response.clone();
-
-        caches.open(C).then(cache => {
-          cache.put(event.request, copy);
-        });
-
+        caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
         return response;
-      });
+      }).catch(() => caches.match("./index.html"));
     })
   );
 });
